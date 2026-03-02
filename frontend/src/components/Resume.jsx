@@ -1,13 +1,13 @@
 const Resume = () => {
   const education = [
     {
-      year: '2020 - 2024',
+      year: '2022- 2026',
       degree: 'Bachelor of Science in Computer Science',
-      institution: 'University Name',
+      institution: 'Bahirdar University',
       description: 'Specialized in Software Engineering and Web Development',
     },
     {
-      year: '2018 - 2020',
+      year: '2018- 2022',
       degree: 'High School Diploma',
       institution: 'High School Name',
       description: 'Focus on Mathematics and Science',
@@ -16,23 +16,22 @@ const Resume = () => {
 
   const experience = [
     {
-      year: '2023 - Present',
-      position: 'Senior Full-Stack Developer',
-      company: 'Tech Company Inc.',
+      year: '2025- Present',
+      position: ' Full-Stack Developer',
       description:
-        'Leading development of scalable web applications using React and Node.js. Mentoring junior developers and implementing best practices.',
+        'advance development of scalable web and mobile applications using React , Node.js,golang mysql,orm Mentoring junior developers and implementing best practices.',
     },
     {
-      year: '2021 - 2023',
-      position: 'Full-Stack Developer',
-      company: 'Startup Solutions',
+      year: '2024- 2025',
+      position: ' junior Full-Stack Developer',
+      company: 'bahirdar university',
       description:
         'Developed and maintained multiple client projects. Worked with various technologies including MongoDB, Express, React, and Node.js.',
     },
     {
-      year: '2020 - 2021',
-      position: 'Junior Developer',
-      company: 'Web Agency',
+      year: '2022- 2023',
+      position: 'algorithm,prgogramming,amchin language basics',
+      company: 'bairdar university',
       description:
         'Started my professional journey building responsive websites and learning industry best practices.',
     },

@@ -1,33 +1,35 @@
+import logo from '../assets/logo.png'
+import car from '../assets/car.png'
 const Projects = () => {
   // Placeholder projects - easy to replace with real projects
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
+      title: 'Amazon ethiopia Platform',
       description:
-        'A full-featured e-commerce platform with user authentication, payment integration, and admin dashboard. Built with React, Node.js, and MongoDB.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
-      techStack: ['React', 'Node.js', 'MongoDB', 'Stripe', 'Express'],
+        'A full cloned amazon e-commerce platform with user authentication, payment integration with chapa , and admin,seller,buyer,delivery dashboard. Built with React, golang with gin, and mysql with gorm',
+      image:logo,
+      techStack: ['React', 'golang,gin', 'mysql,gorm', 'chapa', 'rest api'],
       github: 'https://github.com',
       live: 'https://example.com',
     },
     {
       id: 2,
-      title: 'Task Management App',
+      title: 'car rental system',
       description:
-        'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800',
-      techStack: ['React', 'Socket.io', 'Node.js', 'PostgreSQL', 'Redis'],
+        'A cpmplet car rental system for  for company that have car rent service  can give service based on tis full fetured system with payment integration.',
+      image: car,
+      techStack: ['React,boostatrap', 'Socket.io', 'Node.js', 'express', 'chapa'],
       github: 'https://github.com',
       live: 'https://example.com',
     },
     {
       id: 3,
-      title: 'Social Media Dashboard',
+      title: 'ethiopian student assitant',
       description:
-        'A comprehensive social media analytics dashboard with data visualization, scheduling, and multi-platform integration.',
+        'A comprehensive AI-powered Student Assistant project integrating Google Gemini and OpenAI ChatGPT using LangChain and LangGraph. The system includes both web and mobile applications designed to support Ethiopian students, trained based on the Ethiopian curriculum. This was a team project, and I contributed 50% across backend development, web frontend, and mobile app development.',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
-      techStack: ['Next.js', 'TypeScript', 'Chart.js', 'Tailwind CSS', 'API'],
+      techStack: ['node.js', 'express', 'react', 'Tailwind CSS', 'react native','expo','rest-API','langchain','mongo databse','vector databse using mongodb atlas'],
       github: 'https://github.com',
       live: 'https://example.com',
     },
@@ -35,15 +37,16 @@ const Projects = () => {
       id: 4,
       title: 'Real-Time Chat Application',
       description:
-        'A modern chat application with end-to-end encryption, file sharing, and video call capabilities.',
+        'AI Advisor An AI-powered advisory system designed to support Ethiopian farmers. It is trained on Ethiopian climate, geography, crop production, seasonal patterns, and market data to provide accurate, practical advice for improving productivity and decision-making.',
+
       image: 'https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800',
-      techStack: ['React', 'Socket.io', 'Node.js', 'MongoDB', 'WebRTC'],
+      techStack: ['React', 'express', 'Node.js', 'MongoDB', 'socket.io','lovable cloude supabase'],
       github: 'https://github.com',
       live: 'https://example.com',
     },
     {
       id: 5,
-      title: 'Blog Platform',
+      title: 'job recruitment',
       description:
         'A feature-rich blogging platform with markdown support, SEO optimization, and comment system.',
       image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800',
@@ -53,7 +56,7 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: 'Weather Forecast App',
+      title: 'transportaion system',
       description:
         'A beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics.',
       image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800',
@@ -66,7 +69,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="py-24 md:py-32 dark:bg-[#0f0f0f] bg-white"
+      className="py-12 md:py-16 dark:bg-[#0f0f0f] bg-white"
     >
       <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

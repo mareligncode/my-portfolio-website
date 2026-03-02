@@ -5,23 +5,21 @@ const Skills = () => {
       icon: 'fa-code',
       skills: [
         { name: 'React', level: 95 },
-        { name: 'JavaScript', level: 90 },
-        { name: 'TypeScript', level: 85 },
+        { name: 'JavaScript', level: 95 },
         { name: 'HTML/CSS', level: 95 },
-        { name: 'Tailwind CSS', level: 90 },
-        { name: 'Next.js', level: 80 },
+        { name: 'Tailwind CSS', level: 95 },
+        { name: 'Bootstrap', level: 80 },
       ],
     },
     {
       title: 'Backend',
       icon: 'fa-server',
       skills: [
-        { name: 'Node.js', level: 90 },
-        { name: 'Express.js', level: 88 },
-        { name: 'REST APIs', level: 92 },
-        { name: 'GraphQL', level: 75 },
-        { name: 'Python', level: 80 },
-        { name: 'Java', level: 70 },
+        { name: 'Node.js', level: 95 },
+        { name: 'Express.js', level: 95 },
+        { name: 'REST APIs', level: 90 },
+        { name: 'go', level: 75 },
+        { name: 'golang gin', level: 80 },
       ],
     },
     {
@@ -29,10 +27,8 @@ const Skills = () => {
       icon: 'fa-database',
       skills: [
         { name: 'MongoDB', level: 90 },
-        { name: 'PostgreSQL', level: 85 },
-        { name: 'MySQL', level: 80 },
-        { name: 'Redis', level: 75 },
-        { name: 'Firebase', level: 85 },
+        { name: 'MySQL', level: 90 },
+        { name: 'orm  and gorm', level: 85 },
       ],
     },
     {
@@ -41,10 +37,7 @@ const Skills = () => {
       skills: [
         { name: 'Git', level: 90 },
         { name: 'Docker', level: 80 },
-        { name: 'AWS', level: 75 },
-        { name: 'CI/CD', level: 80 },
-        { name: 'Linux', level: 85 },
-        { name: 'Nginx', level: 75 },
+        { name: 'postmna', level: 75 },
       ],
     },
   ]
@@ -52,7 +45,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-24 md:py-32 dark:bg-[#0a0a0a] bg-[#fafafa]"
+      className="py-12 md:py-16 dark:bg-[#0a0a0a] bg-[#fafafa]"
     >
       <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

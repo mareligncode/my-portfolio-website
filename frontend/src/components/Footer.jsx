@@ -9,7 +9,7 @@ const Footer = () => {
   }
 
   return (
-    <footer className="py-16 dark:bg-[#0a0a0a] bg-gray-900 text-gray-400 border-t border-gray-800 dark:border-gray-900">
+    <footer className="py-8 dark:bg-[#0a0a0a] bg-gray-900 text-gray-400 border-t border-gray-800 dark:border-gray-900">
       <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
@@ -24,7 +24,7 @@ const Footer = () => {
                 </span>
               </div>
               <p className="text-sm leading-relaxed text-gray-400">
-                Building modern, scalable web applications with passion and
+                Building modern, scalable application applications with passion and
                 precision.
               </p>
             </div>
@@ -73,31 +73,24 @@ const Footer = () => {
               <h4 className="text-white font-bold mb-6 text-lg">Connect</h4>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/mareligncode"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-indigo-500 hover:text-white transition-all duration-300 group backdrop-blur-sm border border-gray-700/50 magnetic-btn hover-glow"
                 >
                   <i className="fab fa-github group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
                 </a>
+              
                 <a
-                  href="https://linkedin.com"
+                  href="https://t.me/marelignY"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-indigo-500 hover:text-white transition-all duration-300 group backdrop-blur-sm border border-gray-700/50 magnetic-btn hover-glow"
                 >
-                  <i className="fab fa-linkedin group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
+                  <i className="fab fa-telegram group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
                 </a>
                 <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-indigo-500 hover:text-white transition-all duration-300 group backdrop-blur-sm border border-gray-700/50 magnetic-btn hover-glow"
-                >
-                  <i className="fab fa-twitter group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
-                </a>
-                <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:your.yimermarelign@gmail.com"
                   className="w-12 h-12 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-indigo-500 hover:text-white transition-all duration-300 group backdrop-blur-sm border border-gray-700/50 magnetic-btn hover-glow"
                 >
                   <i className="fas fa-envelope group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
@@ -109,11 +102,11 @@ const Footer = () => {
           {/* Copyright */}
           <div className="border-t border-gray-800 dark:border-gray-900 pt-8 text-center">
             <p className="text-sm text-gray-500">
-              © {currentYear} Full-Stack Developer Portfolio. All rights
+              © 2022-{currentYear} Marelign Yimer:Full-Stack Developer Portfolio. All rights
               reserved.
             </p>
             <p className="text-xs mt-3 text-gray-600">
-              Built with React, Node.js, and ❤️
+              Built with React js,tailwind css.
             </p>
           </div>
         </div>
