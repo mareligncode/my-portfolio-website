@@ -34,10 +34,15 @@ const Skills = () => {
     {
       title: 'Tools & DevOps',
       icon: 'fa-tools',
+      hideIcon: true,
       skills: [
         { name: 'Git', level: 90 },
         { name: 'Docker', level: 80 },
-        { name: 'postmna', level: 75 },
+        { name: 'Postman', level: 75 },
+        { name: 'Soft Skills', isHeader: true },
+        { name: 'Communication', level: 90 },
+        { name: 'Teamwork', level: 95 },
+        { name: 'Problem Solving', level: 90 },
       ],
     },
   ]
@@ -67,32 +72,40 @@ const Skills = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="text-center mb-8">
-                  <div className="w-20 h-20 mx-auto mb-5 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                    <i className={`fas ${category.icon} text-white text-3xl`}></i>
-                  </div>
+                  {!category.hideIcon && (
+                    <div className="w-20 h-20 mx-auto mb-5 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
+                      <i className={`fas ${category.icon} text-white text-3xl`}></i>
+                    </div>
+                  )}
                   <h3 className="text-xl font-bold dark:text-white text-gray-900">
                     {category.title}
                   </h3>
                 </div>
 
                 <div className="space-y-5">
-                  {category.skills.map((skill) => (
-                    <div key={skill.name}>
-                      <div className="flex justify-between mb-2.5">
-                        <span className="text-sm font-semibold dark:text-gray-200 text-gray-700">
-                          {skill.name}
-                        </span>
-                        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                          {skill.level}%
-                        </span>
+                  {category.skills.map((skill, sIdx) => (
+                    skill.isHeader ? (
+                      <h4 key={`header-${sIdx}`} className="text-sm font-bold uppercase tracking-wider text-indigo-500 dark:text-indigo-400 mt-6 mb-2">
+                        {skill.name}
+                      </h4>
+                    ) : (
+                      <div key={skill.name}>
+                        <div className="flex justify-between mb-2.5">
+                          <span className="text-sm font-semibold dark:text-gray-200 text-gray-700">
+                            {skill.name}
+                          </span>
+                          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                            {skill.level}%
+                          </span>
+                        </div>
+                        <div className="w-full h-2.5 bg-gray-200/50 dark:bg-gray-800/50 rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full transition-all duration-1000 ease-out"
+                            style={{ width: `${skill.level}%` }}
+                          ></div>
+                        </div>
                       </div>
-                      <div className="w-full h-2.5 bg-gray-200/50 dark:bg-gray-800/50 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-full transition-all duration-1000 ease-out"
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
-                      </div>
-                    </div>
+                    )
                   ))}
                 </div>
               </div>
