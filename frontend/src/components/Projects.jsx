@@ -1,5 +1,9 @@
 import logo from '../assets/logo.png'
 import car from '../assets/car.png'
+import student  from '../assets/student.jpg'
+import job from '../assets/job.webp'
+import image from '../assets/transport.webp'
+import hotel from '../assets/r1unison.webp'
 const Projects = () => {
   // Placeholder projects - easy to replace with real projects
   const projects = [
@@ -10,8 +14,8 @@ const Projects = () => {
         'A full cloned amazon e-commerce platform with user authentication, payment integration with chapa , and admin,seller,buyer,delivery dashboard. Built with React, golang with gin, and mysql with gorm',
       image:logo,
       techStack: ['React', 'golang,gin', 'mysql,gorm', 'chapa', 'rest api'],
-      github: 'https://github.com',
-      live: 'https://example.com',
+      github: 'https://github.com/mareligncode/ethiopian-amazon',
+      //live: 'https://example.com',
     },
     {
       id: 2,
@@ -19,50 +23,50 @@ const Projects = () => {
       description:
         'A cpmplet car rental system for  for company that have car rent service  can give service based on tis full fetured system with payment integration.',
       image: car,
-      techStack: ['React,boostatrap', 'Socket.io', 'Node.js', 'express', 'chapa'],
-      github: 'https://github.com',
-      live: 'https://example.com',
+      techStack: ['React,boostatrap', 'Socket.io', 'Node.js', 'express','monogdb','REST-API', 'chapa'],
+      github: 'https://github.com/mareligncode/car-Rental-system-web-application',
+      live: 'https://car-rental-system-web-application-2.onrender.com/',
     },
     {
       id: 3,
       title: 'ethiopian student assitant',
       description:
         'A comprehensive AI-powered Student Assistant project integrating Google Gemini and OpenAI ChatGPT using LangChain and LangGraph. The system includes both web and mobile applications designed to support Ethiopian students, trained based on the Ethiopian curriculum. This was a team project, and I contributed 50% across backend development, web frontend, and mobile app development.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800',
+      image: student,
       techStack: ['node.js', 'express', 'react', 'Tailwind CSS', 'react native','expo','rest-API','langchain','mongo databse','vector databse using mongodb atlas'],
       github: 'https://github.com',
-      live: 'https://example.com',
+      live: 'https://expo.dev/artifacts/eas/7wviiZNRRXBuqqpcCiQAP5.apk',
     },
     {
       id: 4,
-      title: 'Real-Time Chat Application',
+      title: 'hotel human resource management(hr)',
       description:
-        'AI Advisor An AI-powered advisory system designed to support Ethiopian farmers. It is trained on Ethiopian climate, geography, crop production, seasonal patterns, and market data to provide accurate, practical advice for improving productivity and decision-making.',
+        'This is a hotel Human Resource Management System with six distinct actors, each having their own roles and responsibilities. The system manages the entire HR process digitally, improving organization and efficiency within hotel operations.',
 
-      image: 'https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800',
-      techStack: ['React', 'express', 'Node.js', 'MongoDB', 'socket.io','lovable cloude supabase'],
+      image: hotel,
+      techStack: ['React', 'express', 'Node.js', 'mysql with sequelize orm', 'socket.io','REST-API','tailwind css'],
       github: 'https://github.com',
-      live: 'https://example.com',
+    //  live: 'https://example.com',
     },
     {
       id: 5,
       title: 'job recruitment',
       description:
-        'A feature-rich blogging platform with markdown support, SEO optimization, and comment system.',
-      image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800',
-      techStack: ['Next.js', 'MDX', 'Prisma', 'PostgreSQL', 'Vercel'],
+        'A real AI-powered job recruitment platform that connects clients and freelancers in Ethiopia. The AI performs job and skill validation and evaluates freelancers based on their tier, profile, and CV.',
+     image: job,
+      techStack: ['react', 'supabse ', 'express', 'nodejs', 'gemini','REST-API'],
       github: 'https://github.com',
-      live: 'https://example.com',
+    //  live: 'https://example.com',
     },
     {
       id: 6,
       title: 'transportaion system',
       description:
-        'A beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics.',
-      image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800',
-      techStack: ['React', 'OpenWeather API', 'Chart.js', 'Geolocation API'],
-      github: 'https://github.com',
-      live: 'https://example.com',
+        'This is a Computer Science graduating project that is almost complete. The project is a real transportation system for Ethiopia designed to replace the manual ticketing system used in stations. It helps store data securely, reduce passenger queues, prevent ticket scams, and save time for both passengers and transport operators. The project includes both a mobile app and a web application. My role was developing the entire backend.',
+      image: image,
+      techStack: ['React', 'nodejs','express', 'REST-API', 'MONGODB','bootstarp'],
+      github: 'https://github.com/mareligncode/bahirdar-transportsion-system',
+    //  live: 'https://example.com',
     },
   ]
 

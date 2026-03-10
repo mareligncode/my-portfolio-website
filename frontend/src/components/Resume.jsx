@@ -1,17 +1,13 @@
+import resume from '../assets/resume.pdf'
 const Resume = () => {
   const education = [
     {
       year: '2022- 2026',
       degree: 'Bachelor of Science in Computer Science',
       institution: 'Bahirdar University',
-      description: 'Specialized in Software Engineering and Web Development',
+      description: 'Specialized in full-stack Development',
     },
-    {
-      year: '2018- 2022',
-      degree: 'High School Diploma',
-      institution: 'High School Name',
-      description: 'Focus on Mathematics and Science',
-    },
+ 
   ]
 
   const experience = [
@@ -19,27 +15,27 @@ const Resume = () => {
       year: '2025- Present',
       position: ' Full-Stack Developer',
       description:
-        'advance development of scalable web and mobile applications using React , Node.js,golang mysql,orm Mentoring junior developers and implementing best practices.',
+        'advance development of scalable web and mobile applications using React , reactnative with expo,Node.js,express,golang mysql,orm Mentoring junior developers and implementing best practices.',
     },
     {
       year: '2024- 2025',
       position: ' junior Full-Stack Developer',
       company: 'bahirdar university',
       description:
-        'Developed and maintained multiple client projects. Worked with various technologies including MongoDB, Express, React, and Node.js.',
+        'Developed and maintained multiple  projects. Worked with various technologies including MongoDB, Express, React, and Node.js. ',
     },
     {
       year: '2022- 2023',
-      position: 'algorithm,prgogramming,amchin language basics',
+      position: 'algorithm,prgogramming,machine language basics',
       company: 'bairdar university',
       description:
-        'Started my professional journey building responsive websites and learning industry best practices.',
+        'Started my professional journey studing the logic of programming  and learning industry best practices.',
     },
   ]
 
   const downloadResume = () => {
     // Placeholder - replace with actual resume URL
-    const resumeUrl = '/resume.pdf'
+    const resumeUrl=resume
     const link = document.createElement('a')
     link.href = resumeUrl
     link.download = 'resume.pdf'
