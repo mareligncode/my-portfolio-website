@@ -55,8 +55,8 @@ const Projects = () => {
         'A real AI-powered job recruitment platform that connects clients and freelancers in Ethiopia. The AI performs job and skill validation and evaluates freelancers based on their tier, profile, and CV.',
      image: job,
       techStack: ['react', 'supabse ', 'express', 'nodejs', 'gemini','REST-API'],
-      github: 'https://github.com',
-    //  live: 'https://example.com',
+      github: 'https://github.com/mareligncode/resume-scout-pro',
+     live: 'https://ethiopian-job-service.vercel.app/',
     },
     {
       id: 6,
