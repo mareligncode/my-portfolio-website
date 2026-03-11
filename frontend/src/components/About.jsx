@@ -17,37 +17,6 @@ const About = () => {
     return () => observer.disconnect()
   }, [])
 
-  const philosophyCards = [
-    {
-      icon: 'fa-bolt',
-      title: 'Fast & Scalable',
-      desc: 'Performance-first development without sacrificing maintainability.',
-      gradient: 'from-indigo-100 to-purple-100 dark:from-indigo-950 dark:to-purple-950',
-      text: 'text-indigo-600 dark:text-indigo-400',
-    },
-    {
-      icon: 'fa-heart',
-      title: 'User-Focused',
-      desc: 'Every design decision prioritizes the real humans using the product.',
-      gradient: 'from-rose-100 to-pink-100 dark:from-rose-950 dark:to-pink-950',
-      text: 'text-rose-600 dark:text-rose-400',
-    },
-    {
-      icon: 'fa-code',
-      title: 'Clean Code',
-      desc: 'Readable, tested, and documented — code that teams enjoy working with.',
-      gradient: 'from-emerald-100 to-teal-100 dark:from-emerald-950 dark:to-teal-950',
-      text: 'text-emerald-600 dark:text-emerald-400',
-    },
-    {
-      icon: 'fa-lightbulb',
-      title: 'Problem Solver',
-      desc: 'Finding elegant, efficient solutions to complex engineering challenges.',
-      gradient: 'from-amber-100 to-orange-100 dark:from-amber-950 dark:to-orange-950',
-      text: 'text-amber-600 dark:text-amber-400',
-    },
-  ]
-
   return (
     <section
       ref={sectionRef}
@@ -74,52 +43,58 @@ const About = () => {
 
         {/* ── Section Header ── */}
         <div className="text-center mb-20 about-fade-up">
-     
-
-       
-
-          <p className="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
-            Passionate about crafting and developing scalable software that solves real problems and delights users.
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-indigo-500 mb-2">
+            About Me
           </p>
+         
         </div>
 
         {/* ── Two-Column Layout ── */}
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
 
-          {/* ── Left — Profile Photo + Stats ── */}
+          {/* ── Left — Profile Card + Stats ── */}
           <div className="space-y-8 about-slide-right">
 
-            {/* Profile Photo */}
-            <div className="relative group rounded-3xl overflow-hidden shadow-2xl">
-              <div className="relative aspect-[4/5] w-full">
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/20 to-transparent z-10 opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
+            {/* Profile Card – big soft rectangle with inner photo card, like template */}
+            <div className="relative rounded-[32px] bg-gradient-to-br from-cyan-50 via-sky-50 to-white dark:from-sky-900 dark:via-slate-900 dark:to-slate-950 shadow-2xl overflow-hidden px-6 sm:px-8 md:px-10 py-8">
+              {/* Top-right dots */}
+              <div
+                className="pointer-events-none absolute -top-10 right-4 w-52 h-32 opacity-60 text-sky-300 dark:text-sky-500"
+                style={{
+                  backgroundImage: 'radial-gradient(currentColor 2px, transparent 2px)',
+                  backgroundSize: '12px 12px',
+                  borderBottomLeftRadius: '999px',
+                }}
+              />
+              {/* Bottom-left dots */}
+              <div
+                className="pointer-events-none absolute bottom-0 left-10 w-52 h-28 opacity-50 text-sky-200 dark:text-sky-600"
+                style={{
+                  backgroundImage: 'radial-gradient(currentColor 2px, transparent 2px)',
+                  backgroundSize: '12px 12px',
+                  borderTopRightRadius: '999px',
+                }}
+              />
 
-                <img
-                  src={photo}
-                  alt="Marelign Yimer — Full-Stack Developer"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
+              {/* Content row: BIG photo on the left, empty space on the right (like template) */}
+              <div className="relative flex items-end md:items-stretch min-h-[320px] sm:min-h-[360px] md:min-h-[420px]">
+                {/* Glow accents behind image */}
+                <div className="pointer-events-none absolute -top-10 left-6 w-44 h-44 rounded-[48px] bg-cyan-100/70 blur-3xl" />
+                <div className="pointer-events-none absolute bottom-8 left-44 w-56 h-44 rounded-[56px] bg-sky-100/70 blur-3xl" />
 
-                {/* Name Badge */}
-                <div className="absolute bottom-6 left-6 z-20">
-                  <div className="transform transition-all duration-500 group-hover:-translate-y-2">
-                    <div className="inline-block px-3 py-1.5 bg-white/10 backdrop-blur-xl rounded-xl border border-white/20 mb-2">
-                      <span className="text-sm font-medium text-white">Full-Stack Developer</span>
-                    </div>
-                    <h3 className="text-3xl font-bold text-white leading-tight drop-shadow-lg">
-                      Hi, I'm Marelign
-                    </h3>
-                    <p className="text-white/80 text-base mt-1 drop-shadow italic">
-                      "Code with purpose, build with heart"
-                    </p>
+                {/* Image block – balanced width/height (no "thin" look) */}
+                <div className="relative w-[92%] sm:w-[86%] md:w-[72%] lg:w-[68%] max-w-none -translate-x-3 md:-translate-x-6 self-end">
+                  <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[34px] shadow-[0_28px_70px_rgba(15,23,42,0.18)]">
+                    <img
+                      src={photo}
+                      alt="Marelign Yimer — Full-Stack Developer"
+                      className="absolute inset-0 w-full h-full object-cover object-[50%_18%]"
+                    />
                   </div>
                 </div>
 
-                {/* Corner accent */}
-                <div className="absolute top-5 right-5 z-20">
-                  <div className="w-14 h-14 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl rotate-12 opacity-90 group-hover:rotate-45 transition-all duration-500 shadow-lg" />
-                </div>
+                {/* Right side left empty so background shows, matching template composition */}
+                <div className="hidden md:block flex-1" />
               </div>
             </div>
 
@@ -162,8 +137,6 @@ const About = () => {
               </div>
 
               <div className="space-y-5 text-gray-600 dark:text-gray-400">
-             
-
                 <p className="text-base leading-relaxed">
                   I hold a{' '}
                   <span className="text-indigo-600 dark:text-indigo-400 font-semibold">
@@ -187,30 +160,34 @@ const About = () => {
                   <span className="text-indigo-600 dark:text-indigo-400 font-semibold">developing</span>  turning
                   complex requirements into clean, maintainable systems that scale.
                 </p>
-              </div>
-            </div>
 
-            {/* Philosophy Cards */}
-            <div className="grid grid-cols-2 gap-4">
-              {philosophyCards.map((card) => (
-                <div
-                  key={card.title}
-                  className="bg-white dark:bg-gray-800/30 p-6 rounded-2xl border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm group hover:border-indigo-400 dark:hover:border-indigo-500 hover:shadow-lg transition-all duration-300"
-                >
-                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${card.gradient} flex items-center justify-center ${card.text} mb-3 group-hover:scale-110 transition-transform`}>
-                    <i className={`fas ${card.icon} text-base`} />
+                {/* Simple philosophy pills */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                  <div className="flex items-start gap-3 rounded-2xl bg-indigo-50 dark:bg-indigo-900/20 px-4 py-3 border border-indigo-100 dark:border-indigo-800">
+                    <div className="mt-0.5 h-8 w-8 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-sm">
+                      <i className="fas fa-bolt" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white">Fast &amp; Scalable</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        Apps engineered for performance and future growth.
+                      </p>
+                    </div>
                   </div>
-                  <h5 className="font-bold text-gray-900 dark:text-white mb-1.5 text-sm">{card.title}</h5>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{card.desc}</p>
+
+                  <div className="flex items-start gap-3 rounded-2xl bg-slate-50 dark:bg-slate-900/30 px-4 py-3 border border-slate-100 dark:border-slate-800">
+                    <div className="mt-0.5 h-8 w-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-sm">
+                      <i className="fas fa-code" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900 dark:text-white">Clean Code</p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400">
+                        Maintainable, readable solutions teams enjoy working with.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
-
-            {/* CTAs */}
-            <div className="flex gap-4 pt-2">
-            
-
-           
+              </div>
             </div>
           </div>
         </div>
