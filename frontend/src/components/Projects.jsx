@@ -4,6 +4,7 @@ import student  from '../assets/student.jpg'
 import job from '../assets/job.webp'
 import image from '../assets/transport.webp'
 import hotel from '../assets/r1unison.webp'
+import farmer from '../assets/farmer.webp'
 const Projects = () => {
   // Placeholder projects - easy to replace with real projects
   const projects = [
@@ -67,6 +68,16 @@ const Projects = () => {
       techStack: ['React', 'nodejs','express', 'REST-API', 'MONGODB','bootstarp'],
       github: 'https://github.com/mareligncode/bahirdar-transportsion-system',
     //  live: 'https://example.com',
+    },
+     {
+      id: 7,
+      title: 'farmer',
+      description:
+        ' A real AI-powered farmer platform that assist sessionally  farmers  as agriculture expert.to prevent crop disease and pests and to increase crop yield. it also provide market price information and weather information.',
+     image: farmer ,
+      techStack: ['react', 'supabse ', 'express', 'nodejs', 'gemini','REST-API','monogdb'],
+      github: 'https://github.com/mareligncode/farmlink-ethiopia',
+     live: 'https://farmlink-ethiopia-advice-and-shopping.onrender.com',
     },
   ]
 
