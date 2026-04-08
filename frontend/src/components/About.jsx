@@ -39,7 +39,7 @@ const About = () => {
         }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Section Header ── */}
         <div className="text-center mb-20 about-fade-up">
@@ -50,16 +50,16 @@ const About = () => {
         </div>
 
         {/* ── Two-Column Layout ── */}
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-start">
 
           {/* ── Left — Profile Card + Stats ── */}
           <div className="space-y-8 about-slide-right">
 
             {/* Profile Card – big soft rectangle with inner photo card, like template */}
-            <div className="relative rounded-[32px] bg-gradient-to-br from-cyan-50 via-sky-50 to-white dark:from-sky-900 dark:via-slate-900 dark:to-slate-950 shadow-2xl overflow-hidden px-6 sm:px-8 md:px-10 py-8">
+            <div className="relative rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-cyan-50 via-sky-50 to-white dark:from-sky-900 dark:via-slate-900 dark:to-slate-950 shadow-2xl overflow-hidden px-4 sm:px-8 md:px-10 py-6 sm:py-8">
               {/* Top-right dots */}
               <div
-                className="pointer-events-none absolute -top-10 right-4 w-52 h-32 opacity-60 text-sky-300 dark:text-sky-500"
+                className="pointer-events-none hidden sm:block absolute -top-10 right-4 w-52 h-32 opacity-60 text-sky-300 dark:text-sky-500"
                 style={{
                   backgroundImage: 'radial-gradient(currentColor 2px, transparent 2px)',
                   backgroundSize: '12px 12px',
@@ -68,7 +68,7 @@ const About = () => {
               />
               {/* Bottom-left dots */}
               <div
-                className="pointer-events-none absolute bottom-0 left-10 w-52 h-28 opacity-50 text-sky-200 dark:text-sky-600"
+                className="pointer-events-none hidden sm:block absolute bottom-0 left-10 w-52 h-28 opacity-50 text-sky-200 dark:text-sky-600"
                 style={{
                   backgroundImage: 'radial-gradient(currentColor 2px, transparent 2px)',
                   backgroundSize: '12px 12px',
@@ -77,13 +77,13 @@ const About = () => {
               />
 
               {/* Content row: BIG photo on the left, empty space on the right (like template) */}
-              <div className="relative flex items-end md:items-stretch min-h-[320px] sm:min-h-[360px] md:min-h-[420px]">
+              <div className="relative flex items-end md:items-stretch min-h-[290px] sm:min-h-[360px] md:min-h-[420px]">
                 {/* Glow accents behind image */}
-                <div className="pointer-events-none absolute -top-10 left-6 w-44 h-44 rounded-[48px] bg-cyan-100/70 blur-3xl" />
-                <div className="pointer-events-none absolute bottom-8 left-44 w-56 h-44 rounded-[56px] bg-sky-100/70 blur-3xl" />
+                <div className="pointer-events-none absolute -top-10 left-6 w-36 sm:w-44 h-36 sm:h-44 rounded-[48px] bg-cyan-100/70 blur-3xl" />
+                <div className="pointer-events-none absolute bottom-8 left-24 sm:left-44 w-44 sm:w-56 h-36 sm:h-44 rounded-[56px] bg-sky-100/70 blur-3xl" />
 
                 {/* Image block – balanced width/height (no "thin" look) */}
-                <div className="relative w-[92%] sm:w-[86%] md:w-[72%] lg:w-[68%] max-w-none -translate-x-3 md:-translate-x-6 self-end">
+                <div className="relative w-full sm:w-[86%] md:w-[72%] lg:w-[68%] max-w-none translate-x-0 md:-translate-x-6 self-end">
                   <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[34px] shadow-[0_28px_70px_rgba(15,23,42,0.18)]">
                     <img
                       src={photo}

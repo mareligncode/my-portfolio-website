@@ -59,7 +59,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
         style={{ width: `${scrollProgress}%` }}
       />
 
-      <nav className="container mx-auto px-6 lg:px-8">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[68px]">
 
           {/* ── Logo ── */}
@@ -82,7 +82,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
               <span className="block text-[15px] font-black tracking-tight text-gray-900 dark:text-white">
                 Marelign
               </span>
-              <span className="block text-[10px] font-semibold tracking-[0.15em] uppercase bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="block text-[10px] font-semibold tracking-[0.15em] uppercase text-indigo-600 dark:text-indigo-300 md:bg-gradient-to-r md:from-indigo-500 md:to-purple-500 md:bg-clip-text md:text-transparent">
                 Full-Stack Dev
               </span>
             </div>
@@ -185,7 +185,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
 
         {/* ── Mobile Menu ── */}
         {isMobileMenuOpen && (
-          <div className="md:hidden pb-4 pt-1 space-y-1 border-t border-gray-100 dark:border-white/[0.06]">
+          <div className="md:hidden pb-4 pt-1 space-y-1 border-t border-gray-100 dark:border-white/[0.06] bg-white/95 dark:bg-gray-950/95 backdrop-blur-xl rounded-b-2xl">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id
               return (
@@ -195,7 +195,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                   className={`flex items-center w-full text-left py-3 px-4 rounded-xl text-sm font-medium transition-all duration-200 ${
                     isActive
                       ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5'
+                      : 'text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/10'
                   }`}
                 >
                   {isActive && (
