@@ -80,6 +80,14 @@ const Footer = () => {
                 >
                   <i className="fab fa-github group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
                 </a>
+                <a
+                  href="https://www.linkedin.com/in/your-linkedin-username"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-indigo-500 hover:text-white transition-all duration-300 group backdrop-blur-sm border border-gray-700/50 magnetic-btn hover-glow"
+                >
+                  <i className="fab fa-linkedin group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
+                </a>
               
                 <a
                   href="https://t.me/marelignY"

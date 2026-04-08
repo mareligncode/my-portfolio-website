@@ -21,10 +21,10 @@ const Contact = () => {
   ]
 
   const socials = [
-    { icon: 'fa-github',   href: 'https://github.com/mareligncode',   fab: true,  label: 'GitHub' },
-    { icon: 'fa-instagram', href: 'https://www.instagram.com/ma.y4534', fab: true,  label: 'LinkedIn' },
-    { icon: 'fa-facebook',  href: 'https://www.facebook.com/profile.php?id=100070214702976&mibextid=rS40aB7S9Ucbxw6v',  fab: true,  label: 'Twitter' },
-    { icon: 'fa-telegram', href: 'https://t.me/marelignY',        fab: true,  label: 'Telegram' },
+    { icon: 'fa-github', href: 'https://github.com/mareligncode', fab: true, label: 'GitHub' },
+    { icon: 'fa-linkedin', href: 'https://www.linkedin.com/in/your-linkedin-username', fab: true, label: 'LinkedIn' },
+    { icon: 'fa-facebook', href: 'https://www.facebook.com/profile.php?id=100070214702976&mibextid=rS40aB7S9Ucbxw6v', fab: true, label: 'Facebook' },
+    { icon: 'fa-telegram', href: 'https://t.me/marelignY', fab: true, label: 'Telegram' },
   ]
 
   return (
