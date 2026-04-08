@@ -22,7 +22,7 @@ const Contact = () => {
 
   const socials = [
     { icon: 'fa-github', href: 'https://github.com/mareligncode', fab: true, label: 'GitHub' },
-    { icon: 'fa-linkedin', href: 'https://www.linkedin.com/in/your-linkedin-username', fab: true, label: 'LinkedIn' },
+    { icon: 'fa-linkedin', href: 'https://www.linkedin.com/in/marelign-yimer-298635369/', fab: true, label: 'LinkedIn' },
     { icon: 'fa-facebook', href: 'https://www.facebook.com/profile.php?id=100070214702976&mibextid=rS40aB7S9Ucbxw6v', fab: true, label: 'Facebook' },
     { icon: 'fa-telegram', href: 'https://t.me/marelignY', fab: true, label: 'Telegram' },
   ]
