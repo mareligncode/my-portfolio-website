@@ -45,7 +45,7 @@ const Home = () => {
 
   const downloadResume = () => {
     const link = document.createElement('a')
-    link.href = '/src/assets/Blue and Gray Simple Web Developer Resume.pdf'
+    link.href = '/src/assets/resume2.pdf'
     link.download = 'resume.pdf'
     document.body.appendChild(link)
     link.click()
