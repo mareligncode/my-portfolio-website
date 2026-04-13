@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import resume from '../assets/resume2.pdf'
+
 
 const Home = () => {
   const [typedText, setTypedText] = useState('')
@@ -43,13 +45,8 @@ const Home = () => {
     if (element) element.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const downloadResume = () => {
-    const link = document.createElement('a')
-    link.href = '/src/assets/resume2.pdf'
-    link.download = 'Marelign_Yimer_Resume.pdf'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+  const openResume = () => {
+    window.open(resume, '_blank')
   }
 
   return (
@@ -78,7 +75,7 @@ const Home = () => {
 
       <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          
+
           {/* Left Column - Introduction */}
           <div className="text-left space-y-4">
             {/* Greeting with refined styling */}
@@ -112,7 +109,7 @@ const Home = () => {
               </span>
             </div>
 
-         
+
           </div>
 
           {/* Right Column - Buttons and Stats */}
@@ -132,18 +129,18 @@ const Home = () => {
               </button>
 
               <button
-                onClick={downloadResume}
+                onClick={openResume}
                 className="group relative px-5 py-2.5 rounded-lg font-medium text-sm border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-indigo-500 dark:hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 hover:-translate-y-0.5"
               >
                 <span className="flex items-center gap-1.5">
-                  <i className="fas fa-file-arrow-down text-xs" />
-                  Download CV
+                  <i className="fas fa-eye text-xs" />
+                  View CV
                 </span>
               </button>
-                <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md leading-relaxed">
-              Building scalable, high-performance applications from sleek UIs to robust back-ends 
-              that solve real problems and leave a lasting impression.
-            </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 max-w-md leading-relaxed">
+                Building scalable, high-performance applications from sleek UIs to robust back-ends
+                that solve real problems and leave a lasting impression.
+              </p>
             </div>
 
             {/* Stats with cleaner presentation */}
@@ -166,9 +163,9 @@ const Home = () => {
                 </div>
               </div>
             </div>
-         
+
           </div>
-          
+
         </div>
       </div>
 
