@@ -46,7 +46,7 @@ const Home = () => {
   const downloadResume = () => {
     const link = document.createElement('a')
     link.href = '/src/assets/resume2.pdf'
-    link.download = 'resume2.pdf'
+    link.download = 'Marelign_Yimer_Resume.pdf'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
