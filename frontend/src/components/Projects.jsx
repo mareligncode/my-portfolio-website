@@ -77,7 +77,7 @@ const Projects = () => {
      image: farmer ,
       techStack: ['react', 'supabse ', 'express', 'nodejs', 'gemini','REST-API','monogdb'],
       github: 'https://github.com/mareligncode/farmlink-ethiopia',
-     live: 'https://farmlink-ethiopia-advice-and-shopping.onrender.com',
+     live: 'https://professor-agri.lovable.app',
     },
   ]
 
