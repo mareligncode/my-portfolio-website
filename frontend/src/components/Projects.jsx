@@ -57,7 +57,7 @@ const Projects = () => {
      image: job,
       techStack: ['react', 'supabse ', 'express', 'nodejs', 'gemini','REST-API'],
       github: 'https://github.com/mareligncode/resume-scout-pro',
-     live: 'https://ethiopian-job-service.vercel.app/',
+     live: 'https://cve-finder-mobile-ui.lovable.app',
     },
     {
       id: 6,
