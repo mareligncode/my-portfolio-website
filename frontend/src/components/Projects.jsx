@@ -35,7 +35,7 @@ const Projects = () => {
         'A comprehensive AI-powered Student Assistant project integrating Google Gemini and OpenAI ChatGPT using LangChain and LangGraph. The system includes both web and mobile applications designed to support Ethiopian students, trained based on the Ethiopian curriculum. This was a team project, and I contributed 50% across backend development, web frontend, and mobile app development.',
       image: student,
       techStack: ['node.js', 'express', 'react', 'Tailwind CSS', 'react native','expo','rest-API','langchain','mongo databse','vector databse using mongodb atlas'],
-      github: 'https://github.com',
+      github: 'https://github.com/fsr-software-solution/School-eAssistant',
       live: 'https://expo.dev/artifacts/eas/7wviiZNRRXBuqqpcCiQAP5.apk',
     },
     {
@@ -46,7 +46,7 @@ const Projects = () => {
 
       image: hotel,
       techStack: ['React', 'express', 'Node.js', 'mysql with sequelize orm', 'socket.io','REST-API','tailwind css'],
-      github: 'https://github.com',
+      github: 'https://github.com/mareligncode/hr-system',
     //  live: 'https://example.com',
     },
     {
@@ -66,7 +66,7 @@ const Projects = () => {
         'This is a Computer Science graduating project that is almost complete. The project is a real transportation system for Ethiopia designed to replace the manual ticketing system used in stations. It helps store data securely, reduce passenger queues, prevent ticket scams, and save time for both passengers and transport operators. The project includes both a mobile app and a web application. My role was developing the entire backend.',
       image: image,
       techStack: ['React', 'nodejs','express', 'REST-API', 'MONGODB','bootstarp'],
-      github: 'https://github.com/mareligncode/bahirdar-transportsion-system',
+      github: '#',
     //  live: 'https://example.com',
     },
      {
