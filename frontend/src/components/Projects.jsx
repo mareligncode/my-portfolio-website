@@ -5,6 +5,7 @@ import job from '../assets/job.webp'
 import image from '../assets/transport.webp'
 import hotel from '../assets/r1unison.webp'
 import farmer from '../assets/farmer.webp'
+import ai from '../assets/ai.jpg'
 const Projects = () => {
   // Placeholder projects - easy to replace with real projects
   const projects = [
@@ -37,6 +38,17 @@ const Projects = () => {
       techStack: ['node.js', 'express', 'react', 'Tailwind CSS', 'react native','expo','rest-API','langchain','mongo databse','vector databse using mongodb atlas'],
       github: 'https://github.com/fsr-software-solution/School-eAssistant',
       live: 'https://expo.dev/artifacts/eas/7wviiZNRRXBuqqpcCiQAP5.apk',
+    },
+    {
+      id: 9,
+      title: 'future impact ai tutore ',
+      description:
+        'Our 3-member team built a fully anonymous AI-powered learning platform from scratch in 48 hours and won first place at the Bahir Dar University AI Hackathon. The system uses AI agents for study planning, course creation, presentations, learning materials, and web/YouTube search. My role included frontend development, backend support, system design, version control, and payment integration.',
+
+      image: ai,
+      techStack: ['React', 'fast api', 'mysql with sequelize orm', 'socket.io','REST-API','tailwind css'],
+      github: 'https://github.com/mareligncode/complete_ai_tutor',
+    //  live: 'https://example.com',
     },
     {
       id: 4,
