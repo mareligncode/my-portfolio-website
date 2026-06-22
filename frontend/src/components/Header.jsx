@@ -42,7 +42,6 @@ const Header = ({ darkMode, toggleDarkMode }) => {
     { id: 'skills',   label: 'Skills' },
     { id: 'projects', label: 'Projects' },
     { id: 'resume',   label: 'Resume' },
-    { id: 'certificates', label: 'Certificates' },
     { id: 'contact',  label: 'Contact' },
   ]
 
