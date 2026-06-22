@@ -15,7 +15,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
       setIsScrolled(scrolled > 20)
 
       // Highlight active nav link
-      const sections = ['home', 'about', 'skills', 'projects', 'resume', 'contact']
+      const sections = ['home', 'about', 'skills', 'projects', 'resume', 'certificates', 'contact']
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i])
         if (el && scrolled >= el.offsetTop - 100) {
@@ -42,6 +42,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
     { id: 'skills',   label: 'Skills' },
     { id: 'projects', label: 'Projects' },
     { id: 'resume',   label: 'Resume' },
+    { id: 'certificates', label: 'Certificates' },
     { id: 'contact',  label: 'Contact' },
   ]
 
