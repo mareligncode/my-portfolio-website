@@ -49,7 +49,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'shadow-lg backdrop-blur-xl bg-gradient-to-r from-indigo-50/95 via-white/95 to-indigo-50/95 dark:bg-gradient-to-r from-indigo-950/95 via-gray-950/95 to-indigo-950/95 border-b border-indigo-200/60 dark:border-indigo-800/40'
+          ? 'shadow-lg backdrop-blur-xl bg-gradient-to-r from-indigo-50/95 via-white/95 to-indigo-50/95 dark:from-indigo-950/95 dark:via-gray-950/95 dark:to-indigo-950/95 border-b border-indigo-200/60 dark:border-indigo-800/40'
           : 'bg-transparent'
       }`}
     >
@@ -98,8 +98,8 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                   onClick={() => scrollToSection(link.id)}
                   className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 group ${
                     isActive
-                      ? 'text-indigo-600 dark:text-indigo-400'
-                      : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
+                      ? 'text-indigo-600 dark:text-indigo-300'
+                      : 'text-gray-600 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
                   {/* Active/hover background pill */}
@@ -194,7 +194,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                   onClick={() => scrollToSection(link.id)}
                   className={`flex items-center w-full text-left py-3 px-4 rounded-xl text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400'
+                      ? 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-300'
                       : 'text-gray-800 dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/10'
                   }`}
                 >
