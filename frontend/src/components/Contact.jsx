@@ -1,4 +1,39 @@
+import { useState } from 'react'
+
 const Contact = () => {
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' })
+  const [status, setStatus] = useState('')
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/mareligny@gmail.com", {
+        method: "POST",
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+            ...formData,
+            _subject: `New Contact Form Submission from ${formData.name}`
+        })
+      })
+      if (response.ok) {
+        setStatus('success')
+        setFormData({ name: '', email: '', phone: '', message: '' })
+        setTimeout(() => setStatus(''), 5000)
+      } else {
+        setStatus('error')
+      }
+    } catch (err) {
+      setStatus('error')
+    }
+  }
   const contactDetails = [
     {
       icon: 'fa-envelope',
@@ -88,6 +123,93 @@ const Contact = () => {
                 )}
               </div>
             ))}
+          </div>
+
+          {/* Contact Form */}
+          <div className="bg-white dark:bg-gray-800/30 rounded-2xl p-8 border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm shadow-xl mb-14 max-w-3xl mx-auto">
+            <h3 className="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">Send me a message</h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                    placeholder="John Doe"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                    placeholder="john@example.com"
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Phone Number (Optional)</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all"
+                  placeholder="+1 234 567 890"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                <textarea
+                  name="message"
+                  required
+                  rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-900/50 text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition-all resize-none"
+                  placeholder="How can I help you?"
+                ></textarea>
+              </div>
+
+              <div className="text-center pt-2">
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:shadow-indigo-500/30 hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none w-full md:w-auto min-w-[200px]"
+                >
+                  {status === 'sending' ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <i className="fas fa-spinner fa-spin"></i> Sending...
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center gap-2">
+                      <i className="fas fa-paper-plane"></i> Send Message
+                    </span>
+                  )}
+                </button>
+              </div>
+
+              {status === 'success' && (
+                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-xl text-green-600 dark:text-green-400 text-center font-medium mt-4">
+                  Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+              {status === 'error' && (
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-600 dark:text-red-400 text-center font-medium mt-4">
+                  Failed to send message. Please try again or use the email link.
+                </div>
+              )}
+            </form>
           </div>
 
           {/* Divider */}

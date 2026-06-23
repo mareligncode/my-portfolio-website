@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import resume from '../assets/resume2.pdf'
+import resume from '../assets/marelignyimercve.pdf'
 
 
 const Home = () => {
