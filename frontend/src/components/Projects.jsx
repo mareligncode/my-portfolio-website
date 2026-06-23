@@ -79,7 +79,7 @@ const Projects = () => {
         'This is a Computer Science graduating project that is almost complete. The project is a real transportation system for Ethiopia designed to replace the manual ticketing system used in stations. It helps store data securely, reduce passenger queues, prevent ticket scams, and save time for both passengers and transport operators. The project includes both a mobile app and a web application. My role was developing the entire backend.',
       image: image,
       techStack: ['React', 'nodejs', 'express', 'REST-API', 'MONGODB', 'bootstarp'],
-      github: '#',
+      github: 'https://github.com/mareligncode/bahirdar-transportsion-system',
       //  live: 'https://example.com',
     },
     {
