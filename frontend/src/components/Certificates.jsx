@@ -8,20 +8,18 @@ const Certificates = () => {
     {
       id: 1,
       title: 'Full Stack Development Certification',
-      issuer: 'Placeholder Issuer',
+      issuer: 'Codeveda',
       date: 'January 2026',
       description: 'Successfully completed a comprehensive bootcamp in modern web development, covering React.js, Node.js, and database technologies.',
-      image: logo,
-      link: '#', // Replace with the actual link to the certificate if available
+      image: logo
     },
     {
       id: 2,
-      title: 'Advanced AI and Machine Learning',
-      issuer: 'Placeholder Issuer',
+      title: '3-Month Dedicated Full Stack Development Training',
+      issuer: 'Demera Percipio Tech',
       date: 'December 2025',
-      description: 'Earned certification for completing advanced modules in AI, machine learning algorithms, and deep learning.',
-      image: demera,
-      link: '#',
+      description: 'Earned certification for completing the full path 3-month dedicated full stack development training.',
+      image: demera
     },
     {
       id: 3,
@@ -30,7 +28,6 @@ const Certificates = () => {
       date: 'November 2025',
       description: 'Demonstrated proficiency in core cloud computing concepts and infrastructure management.',
       image: codedeva,
-      link: '#',
     },
   ]
 
@@ -91,8 +88,8 @@ const Certificates = () => {
                   </p>
 
                   {/* Links */}
-                  <div className="pt-4 border-t border-gray-200 dark:border-gray-800 mt-auto">
-                    {cert.link && cert.link !== '#' ? (
+                  {cert.link && cert.link !== '#' && (
+                    <div className="pt-4 border-t border-gray-200 dark:border-gray-800 mt-auto">
                       <a
                         href={cert.link}
                         target="_blank"
@@ -102,12 +99,8 @@ const Certificates = () => {
                         <i className="fas fa-external-link-alt mr-2 group-hover/link:scale-110 transition-transform"></i>
                         View Certificate
                       </a>
-                    ) : (
-                      <span className="text-sm font-medium text-gray-400 dark:text-gray-500 italic">
-                         Link not available
-                      </span>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

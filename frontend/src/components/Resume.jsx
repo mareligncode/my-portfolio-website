@@ -2,10 +2,11 @@ import resume from '../assets/resume2.pdf'
 const Resume = () => {
   const education = [
     {
-      year: '2022- 2026',
+      year: '2023- 2026',
       degree: 'Bachelor of Science in Computer Science',
       institution: 'Bahirdar University',
       description: 'Specialized in full-stack Development',
+      cgpa: '3.65',
     },
  
   ]
@@ -25,9 +26,9 @@ const Resume = () => {
         'Developed and maintained multiple  projects. Worked with various technologies including MongoDB, Express, React, and Node.js. ',
     },
     {
-      year: '2022- 2023',
+      year: ' 2023',
       position: 'algorithm,prgogramming,machine language basics',
-      company: 'bairdar university',
+      company: 'bahirdar university',
       description:
         'Started my professional journey studing the logic of programming  and learning industry best practices.',
     },
@@ -97,6 +98,11 @@ const Resume = () => {
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
                       {edu.description}
                     </p>
+                    {edu.cgpa && (
+                      <p className="text-gray-800 dark:text-gray-200 font-semibold mt-2">
+                        CGPA: <span className="text-indigo-600 dark:text-indigo-400">{edu.cgpa}</span>
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
