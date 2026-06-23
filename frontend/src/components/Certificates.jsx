@@ -1,4 +1,4 @@
-import logo from '../assets/codedeva.png'
+import logo from '../assets/hackaton.jpg'
 import demera from '../assets/demera-mern.png'
 import codedeva from '../assets/code.png'
 
@@ -7,10 +7,10 @@ const Certificates = () => {
   const certificates = [
     {
       id: 1,
-      title: 'Full Stack Development Certification',
-      issuer: 'Codeveda',
-      date: 'January 2026',
-      description: 'Successfully completed a comprehensive bootcamp in modern web development, covering React.js, Node.js, and database technologies.',
+      title: 'AI Hackaton',
+      issuer: 'BDU computing assocation and partners',
+      date: ' 2026',
+      description: 'Winner of 1st Place at the Bahir Dar University Computing Association AI Hackathon. Collaborated with a team to build an autonomous AI-powered learning system during an intensive and highly competitive hackathon.',
       image: logo
     },
     {
@@ -23,10 +23,10 @@ const Certificates = () => {
     },
     {
       id: 3,
-      title: 'Cloud Computing Fundamentals',
-      issuer: 'Placeholder Issuer',
+      title: 'MERN full stack web development ',
+      issuer: 'codveda',
       date: 'November 2025',
-      description: 'Demonstrated proficiency in core cloud computing concepts and infrastructure management.',
+      description: 'Successfully completed a comprehensive bootcamp and projects in modern web development, covering React.js, Node.js, and database technologies.',
       image: codedeva,
     },
   ]
