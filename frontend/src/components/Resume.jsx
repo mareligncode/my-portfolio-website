@@ -1,4 +1,4 @@
-import resume from '../assets/marelignyimercve.pdf'
+import resume from '../assets/finalcv.pdf'
 const Resume = () => {
   const education = [
     {
@@ -39,7 +39,7 @@ const Resume = () => {
     const resumeUrl=resume
     const link = document.createElement('a')
     link.href = resumeUrl
-    link.download = 'marelignyimercve.pdf'
+    link.download = 'finalcv.pdf'
     link.click()
   }
 
