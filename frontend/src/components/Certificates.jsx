@@ -1,6 +1,7 @@
 import logo from '../assets/hackaton.jpg'
 import demera from '../assets/demera-mern.png'
 import codedeva from '../assets/code.png'
+import tempo from '../assets/tempo.jpg'
 
 const Certificates = () => {
   // Placeholder certificates - replace with your actual certificates
@@ -28,6 +29,14 @@ const Certificates = () => {
       date: 'November 2025',
       description: 'Successfully completed a comprehensive bootcamp and projects in modern web development, covering React.js, Node.js, and database technologies.',
       image: codedeva,
+    },
+     {
+      id: 4,
+      title: 'Bachlor of Computer Science ',
+      issuer: 'Bahirdar University',
+      date: 'june 2026',
+      description: 'Successfully completed a Bachelor of Science in Computer Science from Bahir Dar University with a CGPA of 3.65 and an Exit Exam score of 78%. Throughout my studies, I gained strong theoretical knowledge and extensive hands-on practical experience in software development, data structures and algorithms, database systems, operating systems, computer networks, software engineering, web and mobile application development, and problem-solving through real-world academic and personal projects.',
+      image: tempo,
     },
   ]
 
