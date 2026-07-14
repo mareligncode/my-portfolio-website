@@ -12,32 +12,29 @@ const Contact = () => {
     e.preventDefault()
     setStatus('sending')
 
-    const data = new FormData()
-    data.append('name', formData.name)
-    data.append('email', formData.email)
-    data.append('phone', formData.phone)
-    data.append('message', formData.message)
-    data.append('_subject', `New Contact Form Submission from ${formData.name}`)
-    data.append('_captcha', 'false')
-    data.append('_template', 'table')
-    data.append('_ajax', true)
-
     try {
-      const response = await fetch("https://formsubmit.co/mareligny@gmail.com", {
+      const response = await fetch("https://formspree.io/f/xwvgprwj", {
         method: "POST",
-        body: data,
         headers: {
+          'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          _subject: `New Contact Form Submission from ${formData.name}`,
+        }),
       })
       const result = await response.json()
-      if (response.ok && result.success) {
+      if (response.ok) {
         setStatus('success')
         setFormData({ name: '', email: '', phone: '', message: '' })
         setTimeout(() => setStatus(''), 5000)
       } else {
         setStatus('error')
-        console.error('FormSubmit error:', result)
+        console.error('Formspree error:', result)
       }
     } catch (err) {
       setStatus('error')
