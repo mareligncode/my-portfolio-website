@@ -11,17 +11,20 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
+
+    const data = new FormData()
+    data.append('name', formData.name)
+    data.append('email', formData.email)
+    data.append('phone', formData.phone)
+    data.append('message', formData.message)
+    data.append('_subject', `New Contact Form Submission from ${formData.name}`)
+    data.append('_captcha', 'false')
+    data.append('_template', 'table')
+
     try {
-      const response = await fetch("https://formsubmit.co/ajax/mareligny@gmail.com", {
+      const response = await fetch("https://formsubmit.co/mareligny@gmail.com", {
         method: "POST",
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            ...formData,
-            _subject: `New Contact Form Submission from ${formData.name}`
-        })
+        body: data,
       })
       if (response.ok) {
         setStatus('success')
