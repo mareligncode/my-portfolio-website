@@ -37,7 +37,7 @@ const Projects = () => {
       image: student,
       techStack: ['node.js', 'express', 'react', 'Tailwind CSS', 'react native', 'expo', 'rest-API', 'langchain', 'mongo databse', 'vector databse using mongodb atlas'],
       github: 'https://github.com/fsr-software-solution/School-eAssistant',
-      live: 'https://expo.dev/artifacts/eas/7wviiZNRRXBuqqpcCiQAP5.apk',
+      // live: 'https://expo.dev/artifacts/eas/7wviiZNRRXBuqqpcCiQAP5.apk',
     },
     {
       id: 9,
