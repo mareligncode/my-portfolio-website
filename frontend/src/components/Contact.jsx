@@ -20,21 +20,28 @@ const Contact = () => {
     data.append('_subject', `New Contact Form Submission from ${formData.name}`)
     data.append('_captcha', 'false')
     data.append('_template', 'table')
+    data.append('_ajax', true)
 
     try {
       const response = await fetch("https://formsubmit.co/mareligny@gmail.com", {
         method: "POST",
         body: data,
+        headers: {
+          'Accept': 'application/json',
+        },
       })
-      if (response.ok) {
+      const result = await response.json()
+      if (response.ok && result.success) {
         setStatus('success')
         setFormData({ name: '', email: '', phone: '', message: '' })
         setTimeout(() => setStatus(''), 5000)
       } else {
         setStatus('error')
+        console.error('FormSubmit error:', result)
       }
     } catch (err) {
       setStatus('error')
+      console.error('Form submission error:', err)
     }
   }
   const contactDetails = [
