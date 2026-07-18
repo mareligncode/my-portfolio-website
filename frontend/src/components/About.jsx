@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import photo from '../assets/BDU1506923.png'
+import photo from '../assets/marelignyimer.jpg'
 
 const About = () => {
   const sectionRef = useRef(null)
