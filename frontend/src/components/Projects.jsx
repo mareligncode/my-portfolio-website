@@ -15,7 +15,7 @@ const Projects = () => {
       description:
         'A full cloned amazon e-commerce platform with user authentication, payment integration with chapa , and admin,seller,buyer,delivery dashboard. Built with React, golang with gin, and mysql with gorm',
       image: logo,
-      techStack: ['React', 'golang,gin', 'mysql,gorm', 'chapa', 'rest api'],
+      techStack: ['React', 'golang,gin', 'mysql,gorm', 'chapa', 'rest api','kafka','docker-container'],
       github: 'https://github.com/mareligncode/ethiopian-amazon',
       //live: 'https://example.com',
     },
