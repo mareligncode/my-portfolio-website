@@ -1,4 +1,4 @@
-import resume from '../assets/finalcv.pdf'
+import resume from '../assets/Marelign.pdf'
 const Resume = () => {
   const education = [
     {
@@ -8,7 +8,7 @@ const Resume = () => {
       description: 'Specialized in full-stack Development',
       cgpa: '3.65',
     },
- 
+
   ]
 
   const experience = [
@@ -36,10 +36,10 @@ const Resume = () => {
 
   const downloadResume = () => {
     // Placeholder - replace with actual resume URL
-    const resumeUrl=resume
+    const resumeUrl = resume
     const link = document.createElement('a')
     link.href = resumeUrl
-    link.download = 'finalcv.pdf'
+    link.download = 'Marelign.pdf'
     link.click()
   }
 

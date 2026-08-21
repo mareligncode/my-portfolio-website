@@ -6,9 +6,19 @@ import image from '../assets/transport.webp'
 import hotel from '../assets/r1unison.webp'
 import farmer from '../assets/farmer.webp'
 import ai from '../assets/ai.jpg'
+import erp from '../assets/erp.jpg'
 const Projects = () => {
   // Placeholder projects - easy to replace with real projects
   const projects = [
+    {
+      id: 10,
+      title: 'Vector Advert & Manufacturing – Complete ERP System',
+      description:
+        'A full-scale Enterprise Resource Planning (ERP) system I built and deployed with my team for Vector Advert & Manufacturing Company. The platform digitizes the entire business workflow  from manufacturing production tracking, inventory & warehouse management, and supply chain operations to advertising campaign management, employee HR, finance & accounting, CRM, and real-time analytics dashboards. This was one of my proudest achievements: architecting and delivering a production-grade enterprise system that is actively used by the company to run their day-to-day operations.',
+      image: erp,
+      techStack: ['React', 'Node.js', 'Express', 'postgress with orm', 'REST API', 'Role-Based Access', 'Real-Time Analytics','web sockets','supbase','micro services with supabase and node backend service'],
+      live: 'https://vectoradvert.com/erp',
+    },
     {
       id: 1,
       title: 'Amazon ethiopia Platform',
