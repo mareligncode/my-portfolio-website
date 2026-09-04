@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Layers, ArrowRight, Eye } from 'lucide-react'
 import resume from '../assets/Marelign.pdf'
 
 
@@ -120,10 +121,10 @@ const Home = () => {
                 onClick={() => scrollToSection('projects')}
                 className="group relative px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-medium text-sm shadow-md hover:shadow-indigo-500/30 transition-all duration-300 hover:-translate-y-0.5 overflow-hidden"
               >
-                <span className="relative z-10 flex items-center gap-1.5">
-                  <i className="fas fa-layer-group text-xs" />
+                <span className="relative z-10 flex items-center gap-2">
+                  <Layers className="w-4 h-4" />
                   View Projects
-                  <i className="fas fa-arrow-right text-xs opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                  <ArrowRight className="w-4 h-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
@@ -132,8 +133,8 @@ const Home = () => {
                 onClick={openResume}
                 className="group relative px-5 py-2.5 rounded-lg font-medium text-sm border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-indigo-500 dark:hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300 hover:-translate-y-0.5"
               >
-                <span className="flex items-center gap-1.5">
-                  <i className="fas fa-eye text-xs" />
+                <span className="flex items-center gap-2">
+                  <Eye className="w-4 h-4" />
                   View CV
                 </span>
               </button>

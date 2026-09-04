@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Sun, Moon, Menu, X, Sparkles } from 'lucide-react'
 
 const Header = ({ darkMode, toggleDarkMode }) => {
   const [isScrolled, setIsScrolled]         = useState(false)
@@ -134,10 +135,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
               {/* Shimmer */}
               <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
               <span className="relative z-10 flex items-center gap-1.5">
-                <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-80" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
-                </span>
+                <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
                 Hire Me
               </span>
             </button>
@@ -147,14 +145,16 @@ const Header = ({ darkMode, toggleDarkMode }) => {
               onClick={toggleDarkMode}
               className={`ml-2 w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 border ${
                 darkMode
-                  ? 'bg-gray-800 border-gray-700 text-amber-400 hover:bg-gray-700'
-                  : 'bg-gray-100 border-gray-200 text-gray-500 hover:bg-gray-200'
+                  ? 'bg-gray-800 border-gray-700 text-amber-400 hover:bg-gray-700 hover:text-amber-300'
+                  : 'bg-gray-100 border-gray-200 text-gray-600 hover:bg-gray-200 hover:text-gray-900'
               }`}
               aria-label="Toggle dark mode"
             >
-              {darkMode
-                ? <i className="fas fa-sun text-sm" />
-                : <i className="fas fa-moon text-sm" />}
+              {darkMode ? (
+                <Sun className="w-4 h-4 transition-transform duration-300 group-hover:rotate-45" />
+              ) : (
+                <Moon className="w-4 h-4 transition-transform duration-300 group-hover:-rotate-12" />
+              )}
             </button>
           </div>
 
@@ -167,8 +167,9 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                   ? 'bg-gray-800 border-gray-700 text-amber-400'
                   : 'bg-gray-100 border-gray-200 text-gray-600'
               }`}
+              aria-label="Toggle dark mode"
             >
-              {darkMode ? <i className="fas fa-sun text-sm" /> : <i className="fas fa-moon text-sm" />}
+              {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -177,8 +178,9 @@ const Header = ({ darkMode, toggleDarkMode }) => {
                   ? 'bg-gray-800 border-gray-700 text-white'
                   : 'bg-gray-100 border-gray-200 text-gray-800'
               }`}
+              aria-label="Toggle navigation menu"
             >
-              <i className={`fas text-base ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`} />
+              {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
@@ -211,10 +213,7 @@ const Header = ({ darkMode, toggleDarkMode }) => {
               onClick={() => scrollToSection('contact')}
               className="w-full mt-2 py-3 px-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 flex items-center justify-center gap-2"
             >
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-80" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
-              </span>
+              <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
               Hire Me
             </button>
           </div>

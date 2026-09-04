@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react'
+import { GitBranch, Calendar, Quote, Zap, Code2 } from 'lucide-react'
 import photo from '../assets/marelignyimer.jpg'
 
 const About = () => {
@@ -101,12 +102,12 @@ const About = () => {
             {/* Stats */}
             <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-800">
               {[
-                { value: '15+', label: 'Projects', icon: 'fa-code-branch' },
-                { value: '3+',  label: 'Years Exp.', icon: 'fa-calendar-alt' },
+                { value: '15+', label: 'Projects', Icon: GitBranch },
+                { value: '3+',  label: 'Years Exp.', Icon: Calendar },
               ].map((stat) => (
                 <div key={stat.label} className="text-center group flex-1">
-                  <div className="text-base text-gray-400 dark:text-gray-600 mb-2 group-hover:scale-110 transition-transform duration-300">
-                    <i className={`fas ${stat.icon}`} />
+                  <div className="text-base text-gray-400 dark:text-gray-600 mb-2 group-hover:scale-110 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-all duration-300 flex justify-center">
+                    <stat.Icon className="w-5 h-5" />
                   </div>
                   <div className="text-2xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                     {stat.value}
@@ -126,7 +127,7 @@ const About = () => {
             <div className="bg-white dark:bg-gray-800/30 rounded-3xl p-8 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 shadow-xl">
               <div className="flex items-start gap-4 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-xl shadow-lg flex-shrink-0">
-                  <i className="fas fa-quote-right" />
+                  <Quote className="w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
@@ -143,7 +144,7 @@ const About = () => {
                     BSc in Computer Science at BahirDar University,
                   </span>{' '}
                   and spent four years mastering algorithms, data structures, and full-stack application development. That
-                  foundation  combined with real-world project experience  lets me architect solutions that are
+                  foundation combined with real-world project experience lets me architect solutions that are
                   both technically sound and user-centric.
                 </p>
 
@@ -164,8 +165,8 @@ const About = () => {
                 {/* Simple philosophy pills */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                   <div className="flex items-start gap-3 rounded-2xl bg-indigo-50 dark:bg-indigo-900/20 px-4 py-3 border border-indigo-100 dark:border-indigo-800">
-                    <div className="mt-0.5 h-8 w-8 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-sm">
-                      <i className="fas fa-bolt" />
+                    <div className="mt-0.5 h-8 w-8 rounded-xl bg-indigo-500 text-white flex items-center justify-center text-sm flex-shrink-0">
+                      <Zap className="w-4 h-4" />
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-gray-900 dark:text-white">Fast &amp; Scalable</p>
@@ -176,8 +177,8 @@ const About = () => {
                   </div>
 
                   <div className="flex items-start gap-3 rounded-2xl bg-slate-50 dark:bg-slate-900/30 px-4 py-3 border border-slate-100 dark:border-slate-800">
-                    <div className="mt-0.5 h-8 w-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-sm">
-                      <i className="fas fa-code" />
+                    <div className="mt-0.5 h-8 w-8 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-sm flex-shrink-0">
+                      <Code2 className="w-4 h-4" />
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-gray-900 dark:text-white">Clean Code</p>

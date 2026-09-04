@@ -1,3 +1,4 @@
+import { ExternalLink, Award, Calendar } from 'lucide-react'
 import logo from '../assets/hackaton.jpg'
 import demera from '../assets/demera-mern.png'
 import codedeva from '../assets/code.png'
@@ -82,12 +83,14 @@ const Certificates = () => {
                         {cert.title}
                      </h3>
                   </div>
-                  <div className="mb-4">
-                     <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
+                  <div className="mb-4 flex flex-wrap items-center gap-y-1 text-sm">
+                     <span className="inline-flex items-center font-semibold text-indigo-600 dark:text-indigo-400">
+                        <Award className="w-4 h-4 mr-1 text-indigo-500" />
                         {cert.issuer}
                      </span>
                      <span className="mx-2 text-gray-300 dark:text-gray-600">•</span>
-                     <span className="text-sm text-gray-500 dark:text-gray-500">
+                     <span className="inline-flex items-center text-gray-500 dark:text-gray-400">
+                        <Calendar className="w-3.5 h-3.5 mr-1 text-gray-400" />
                         {cert.date}
                      </span>
                   </div>
@@ -105,7 +108,7 @@ const Certificates = () => {
                         rel="noopener noreferrer"
                         className="flex items-center text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors group/link"
                       >
-                        <i className="fas fa-external-link-alt mr-2 group-hover/link:scale-110 transition-transform"></i>
+                        <ExternalLink className="w-4 h-4 mr-1.5 group-hover/link:scale-110 transition-transform" />
                         View Certificate
                       </a>
                     </div>

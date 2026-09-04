@@ -1,3 +1,5 @@
+import { Github, Linkedin, Telegram, Mail } from './Icons'
+
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
@@ -76,32 +78,36 @@ const Footer = () => {
                   href="https://github.com/mareligncode"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="GitHub"
                   className="w-12 h-12 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-indigo-500 hover:text-white transition-all duration-300 group backdrop-blur-sm border border-gray-700/50 magnetic-btn hover-glow"
                 >
-                  <i className="fab fa-github group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
+                  <Github className="w-5 h-5 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/marelign-yimer-298635369/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="LinkedIn"
                   className="w-12 h-12 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-indigo-500 hover:text-white transition-all duration-300 group backdrop-blur-sm border border-gray-700/50 magnetic-btn hover-glow"
                 >
-                  <i className="fab fa-linkedin group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
+                  <Linkedin className="w-5 h-5 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300" />
                 </a>
               
                 <a
                   href="https://t.me/marelignY"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Telegram"
                   className="w-12 h-12 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-indigo-500 hover:text-white transition-all duration-300 group backdrop-blur-sm border border-gray-700/50 magnetic-btn hover-glow"
                 >
-                  <i className="fab fa-telegram group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
+                  <Telegram className="w-5 h-5 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300" />
                 </a>
                 <a
-                  href="mailto:your.yimermarelign@gmail.com"
+                  href="mailto:yimermarelign@gmail.com"
+                  aria-label="Email"
                   className="w-12 h-12 bg-gray-800/50 rounded-xl flex items-center justify-center hover:bg-indigo-500 hover:text-white transition-all duration-300 group backdrop-blur-sm border border-gray-700/50 magnetic-btn hover-glow"
                 >
-                  <i className="fas fa-envelope group-hover:scale-125 group-hover:rotate-12 transition-all duration-300"></i>
+                  <Mail className="w-5 h-5 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300" />
                 </a>
               </div>
             </div>
@@ -110,11 +116,11 @@ const Footer = () => {
           {/* Copyright */}
           <div className="border-t border-gray-800 dark:border-gray-900 pt-8 text-center">
             <p className="text-sm text-gray-500">
-              © 2022-{currentYear} Marelign Yimer:Full-Stack Developer Portfolio. All rights
+              © 2022-{currentYear} Marelign Yimer: Full-Stack Developer Portfolio. All rights
               reserved.
             </p>
             <p className="text-xs mt-3 text-gray-600">
-              Built with React js,tailwind css.
+              Built with React js, Tailwind CSS.
             </p>
           </div>
         </div>

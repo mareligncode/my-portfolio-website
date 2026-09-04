@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Mail, Phone, MapPin, Send, Loader2, Github, Linkedin, Facebook, Telegram } from './Icons'
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' })
@@ -43,30 +44,30 @@ const Contact = () => {
   }
   const contactDetails = [
     {
-      icon: 'fa-envelope',
+      Icon: Mail,
       label: 'Email',
       value: 'yimermarelign@gmail.com',
       href: 'mailto:yimermarelign@gmail.com',
     },
     {
-      icon: 'fa-phone',
+      Icon: Phone,
       label: 'Phone',
       value: '+251 945 342 453',
       href: 'tel:+251912345678',
     },
     {
-      icon: 'fa-map-marker-alt',
+      Icon: MapPin,
       label: 'Location',
-      value: ' Ethiopia:Available for remote work worldwide',
+      value: 'Ethiopia (Available for remote work worldwide)',
       href: null,
     },
   ]
 
   const socials = [
-    { icon: 'fa-github', href: 'https://github.com/mareligncode', fab: true, label: 'GitHub' },
-    { icon: 'fa-linkedin', href: 'https://www.linkedin.com/in/marelign-yimer-298635369/', fab: true, label: 'LinkedIn' },
-    { icon: 'fa-facebook', href: 'https://www.facebook.com/profile.php?id=100070214702976&mibextid=rS40aB7S9Ucbxw6v', fab: true, label: 'Facebook' },
-    { icon: 'fa-telegram', href: 'https://t.me/marelignY', fab: true, label: 'Telegram' },
+    { Icon: Github, href: 'https://github.com/mareligncode', label: 'GitHub' },
+    { Icon: Linkedin, href: 'https://www.linkedin.com/in/marelign-yimer-298635369/', label: 'LinkedIn' },
+    { Icon: Facebook, href: 'https://www.facebook.com/profile.php?id=100070214702976&mibextid=rS40aB7S9Ucbxw6v', label: 'Facebook' },
+    { Icon: Telegram, href: 'https://t.me/marelignY', label: 'Telegram' },
   ]
 
   return (
@@ -101,7 +102,7 @@ const Contact = () => {
             </h2>
 
             <p className="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
-              Have a project in your mind or want to collaborate? Reach out through any of the channels below  I'd love to make real solution for your idea.
+              Have a project in mind or want to collaborate? Reach out through any of the channels below — I'd love to make a real solution for your idea.
             </p>
           </div>
 
@@ -113,7 +114,7 @@ const Contact = () => {
                 className="bg-white dark:bg-gray-800/30 rounded-2xl p-6 border border-gray-200 dark:border-gray-700/50 backdrop-blur-sm shadow-md hover:shadow-xl hover:border-indigo-400 dark:hover:border-indigo-500 transition-all duration-300 group"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <i className={`fas ${item.icon} text-white`} />
+                  <item.Icon className="w-6 h-6 text-white" />
                 </div>
                 <h4 className="font-bold text-gray-900 dark:text-white text-base mb-1">
                   {item.label}
@@ -196,11 +197,11 @@ const Contact = () => {
                 >
                   {status === 'sending' ? (
                     <span className="flex items-center justify-center gap-2">
-                      <i className="fas fa-spinner fa-spin"></i> Sending...
+                      <Loader2 className="w-5 h-5 animate-spin" /> Sending...
                     </span>
                   ) : (
                     <span className="flex items-center justify-center gap-2">
-                      <i className="fas fa-paper-plane"></i> Send Message
+                      <Send className="w-5 h-5" /> Send Message
                     </span>
                   )}
                 </button>
@@ -239,7 +240,7 @@ const Contact = () => {
                 aria-label={s.label}
                 className="group w-14 h-14 rounded-2xl border border-gray-200 dark:border-gray-700/50 bg-white dark:bg-gray-800/30 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gradient-to-br hover:from-indigo-500 hover:to-purple-600 hover:text-white hover:border-transparent hover:shadow-lg hover:scale-110 transition-all duration-300"
               >
-                <i className={`${s.fab ? 'fab' : 'fas'} ${s.icon} text-xl group-hover:scale-110 transition-transform`} />
+                <s.Icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
               </a>
             ))}
           </div>

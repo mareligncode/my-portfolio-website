@@ -1,3 +1,4 @@
+import { Github, Youtube, ExternalLink } from './Icons'
 import logo from '../assets/logo.png'
 import car from '../assets/car.png'
 import student from '../assets/student.jpg'
@@ -171,7 +172,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         className="flex items-center text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group/link"
                       >
-                        <i className="fab fa-github mr-2 group-hover/link:scale-110 transition-transform"></i>
+                        <Github className="w-4 h-4 mr-1.5 group-hover/link:scale-110 transition-transform" />
                         Code
                       </a>
                     )}
@@ -182,7 +183,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         className="flex items-center text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group/link"
                       >
-                        <i className="fab fa-youtube mr-2 group-hover/link:scale-110 transition-transform text-red-600"></i>
+                        <Youtube className="w-4 h-4 mr-1.5 group-hover/link:scale-110 transition-transform text-red-500" />
                         Video
                       </a>
                     )}
@@ -193,7 +194,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         className="flex items-center text-sm font-semibold text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors group/link"
                       >
-                        <i className="fas fa-external-link-alt mr-2 group-hover/link:scale-110 transition-transform"></i>
+                        <ExternalLink className="w-4 h-4 mr-1.5 group-hover/link:scale-110 transition-transform" />
                         Live Demo
                       </a>
                     )}

@@ -1,3 +1,4 @@
+import { Download, GraduationCap, Briefcase } from 'lucide-react'
 import resume from '../assets/Marelign.pdf'
 const Resume = () => {
   const education = [
@@ -61,7 +62,7 @@ const Resume = () => {
                 className="btn-primary magnetic-btn ripple px-8 py-4 text-white rounded-xl font-semibold text-base shadow-lg hover-glow group"
               >
                 <span className="flex items-center">
-                  <i className="fas fa-download mr-2 group-hover:translate-y-1 transition-transform"></i>
+                  <Download className="w-5 h-5 mr-2 group-hover:translate-y-0.5 transition-transform" />
                   Download Resume (PDF)
                 </span>
               </button>
@@ -73,7 +74,7 @@ const Resume = () => {
             <div className="scroll-reveal-left">
               <h3 className="text-3xl font-bold mb-12 dark:text-white text-gray-900 flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mr-4 shadow-lg pulse-glow hover:scale-110 transition-transform">
-                  <i className="fas fa-graduation-cap text-white"></i>
+                  <GraduationCap className="w-6 h-6 text-white" />
                 </div>
                 Education
               </h3>
@@ -112,7 +113,7 @@ const Resume = () => {
             <div className="scroll-reveal-right">
               <h3 className="text-3xl font-bold mb-12 dark:text-white text-gray-900 flex items-center">
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4 shadow-lg pulse-glow hover:scale-110 transition-transform">
-                  <i className="fas fa-briefcase text-white"></i>
+                  <Briefcase className="w-6 h-6 text-white" />
                 </div>
                 Experience
               </h3>

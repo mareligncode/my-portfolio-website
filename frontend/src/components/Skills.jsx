@@ -1,8 +1,10 @@
+import { Code2, Server, Database, Terminal } from 'lucide-react'
+
 const Skills = () => {
   const skillCategories = [
     {
       title: 'Frontend',
-      icon: 'fa-code',
+      Icon: Code2,
       skills: [
         { name: 'React', level: 95 },
         { name: 'JavaScript', level: 95 },
@@ -13,7 +15,7 @@ const Skills = () => {
     },
     {
       title: 'Backend',
-      icon: 'fa-server',
+      Icon: Server,
       skills: [
         { name: 'Node.js', level: 95 },
         { name: 'Express.js', level: 95 },
@@ -24,7 +26,7 @@ const Skills = () => {
     },
     {
       title: 'Database',
-      icon: 'fa-database',
+      Icon: Database,
       skills: [
         { name: 'MongoDB', level: 90 },
         { name: 'MySQL', level: 90 },
@@ -33,8 +35,7 @@ const Skills = () => {
     },
     {
       title: 'Tools & DevOps',
-      icon: 'fa-tools',
-      hideIcon: true,
+      Icon: Terminal,
       skills: [
         { name: 'Git', level: 90 },
         { name: 'Docker', level: 80 },
@@ -72,11 +73,9 @@ const Skills = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="text-center mb-8">
-                  {!category.hideIcon && (
-                    <div className="w-20 h-20 mx-auto mb-5 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg">
-                      <i className={`fas ${category.icon} text-white text-3xl`}></i>
-                    </div>
-                  )}
+                  <div className="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <category.Icon className="w-8 h-8 text-white" />
+                  </div>
                   <h3 className="text-xl font-bold dark:text-white text-gray-900">
                     {category.title}
                   </h3>
