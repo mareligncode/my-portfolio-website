@@ -96,97 +96,91 @@ User Query: ${query}`
  * Intelligent Local Fallback RAG Engine (Zero API Key needed / Offline mode)
  */
 export function generateLocalRAGResponse(query, retrievedChunks) {
-  const q = query.toLowerCase()
-
-  if (q.includes('certif') || q.includes('award') || q.includes('honor') || q.includes('hackathon') || q.includes('achievement')) {
+  if (!retrievedChunks || retrievedChunks.length === 0) {
     return `Here is what I found in Marelign's profile:
 
-Certifications & Honors:
+Portfolio Summary:
 
-1. **1st Place Winner - BDU Computing Association AI Hackathon (2026)**: Honored for developing an autonomous AI-driven educational platform in 48 hours.
+1. **Identity & Role**: Full-Stack Software Engineer & AI Developer with 3+ years professional experience.
 
-2. **3-Month Dedicated Full Stack Development Training - Demera Percipio Tech (Dec 2025)**: Specialized professional training in modern enterprise development and software engineering best practices.
+2. **Education**: BSc in Computer Science from Bahir Dar University (CGPA 3.65 / 4.00, Exit Exam 78%).
 
-3. **MERN Full Stack Web Development Certification - Codveda (Nov 2025)**: Mastery in React, Node.js, Express, MongoDB, and modern DB systems.
-
-4. **BSc in Computer Science with Distinction - Bahir Dar University (June 2026)**: CGPA 3.65 / 4.00, National Exit Exam Score 78%.
+3. **Key Highlights**: 🥇 1st Place AI Hackathon Winner (2026), Vector Advert ERP creator, and MERN/Golang developer.
 
 *Feel free to ask more specific questions about his projects, skills, education, or contact details!*`
   }
 
-  if (q.includes('skill') || q.includes('stack') || q.includes('react') || q.includes('node') || q.includes('python') || q.includes('tech') || q.includes('language')) {
+  const queryTokens = query
+    .toLowerCase()
+    .replace(/[^\w\s]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length > 2)
+
+  // Gather relevant lines across top retrieved chunks
+  const extractedItems = []
+  const categoryHeader = retrievedChunks[0].category || "Profile Details"
+
+  retrievedChunks.forEach((chunk) => {
+    const rawLines = chunk.content
+      .split('\n')
+      .map((l) => l.trim())
+      .filter((l) => l.length > 5)
+
+    rawLines.forEach((line) => {
+      const lineLower = line.toLowerCase()
+      const isRelevant = queryTokens.some((token) => lineLower.includes(token))
+      
+      // Clean leading bullet markers
+      const cleanLine = line.replace(/^[-•*]\s*/, '').replace(/^\d+\.\s*/, '').trim()
+      
+      if (isRelevant && cleanLine && !extractedItems.includes(cleanLine)) {
+        extractedItems.push(cleanLine)
+      }
+    })
+  })
+
+  // If specific lines matching query tokens were found
+  if (extractedItems.length > 0) {
+    const topItems = extractedItems.slice(0, 5)
+    const formattedList = topItems
+      .map((item, index) => {
+        // Ensure bold title format if colon exists
+        if (item.includes(':')) {
+          const parts = item.split(':')
+          const title = parts[0].replace(/\*\*/g, '').trim()
+          const rest = parts.slice(1).join(':').trim()
+          return `${index + 1}. **${title}**: ${rest}`
+        }
+        return `${index + 1}. ${item.startsWith('**') ? item : `**Detail**: ${item}`}`
+      })
+      .join('\n\n')
+
     return `Here is what I found in Marelign's profile:
 
-Core Technical Skills & Stack:
+${categoryHeader}:
 
-1. **Frontend & Mobile Development**: Master of React.js, JavaScript (ES6+), HTML5/CSS3, Tailwind CSS, Bootstrap, and cross-platform React Native & Expo for iOS/Android apps.
-
-2. **Backend Engineering**: Expert in Node.js, Express.js, RESTful API architecture, Golang (Gin framework), FastAPI (Python), WebSockets, and Apache Kafka microservices.
-
-3. **Databases & Cloud**: Proficient in MongoDB Atlas Vector Search (RAG), PostgreSQL, MySQL (Sequelize/GORM ORMs), Supabase, and Docker containerization.
-
-4. **AI & Machine Learning**: Specialized in Google Gemini, OpenAI GPT, LangChain, LangGraph multi-agent workflows, vector embeddings, and autonomous RAG systems.
+${formattedList}
 
 *Feel free to ask more specific questions about his projects, skills, education, or contact details!*`
   }
 
-  if (q.includes('project') || q.includes('erp') || q.includes('amazon') || q.includes('work') || q.includes('app') || q.includes('portfolio')) {
-    return `Here is what I found in Marelign's profile:
-
-Featured Software Projects:
-
-1. **Vector Advert Complete ERP System (Live in Production)**: Architected and deployed a full-scale enterprise ERP managing manufacturing tracking, inventory, HR portal, accounting, supply chain, and live executive analytics dashboards ([Live ERP Demo](https://vectoradvert.com/erp)).
-
-2. **Amazon Ethiopia E-Commerce Platform**: Multi-role online marketplace with Chapa payment gateway, real-time order tracking, and decoupled microservices powered by React, Golang Gin, MySQL, and Kafka ([GitHub Repository](https://github.com/mareligncode/ethiopian-amazon)).
-
-3. **Future Impact Autonomous AI Tutor (1st Place Hackathon Winner)**: AI platform built in 48 hours providing autonomous study planning, course generation, and quiz building ([GitHub Repository](https://github.com/mareligncode/complete_ai_tutor)).
-
-4. **Ethiopian Student AI Assistant**: Web & Mobile AI application integrated with Gemini & OpenAI via LangChain/LangGraph trained on national curriculum ([GitHub Repository](https://github.com/fsr-software-solution/School-eAssistant)).
-
-*Feel free to ask more specific questions about his projects, skills, education, or contact details!*`
-  }
-
-  if (q.includes('education') || q.includes('degree') || q.includes('university') || q.includes('cgpa') || q.includes('gpa') || q.includes('grade') || q.includes('exit')) {
-    return `Here is what I found in Marelign's profile:
-
-Education & Academic Background:
-
-1. **BSc in Computer Science (Distinction)**: Graduated from Bahir Dar University (BDU), Ethiopia (2023 - 2026).
-
-2. **Academic Standing**: Maintained an outstanding **CGPA of 3.65 / 4.00**, placing in the top tier of his cohort.
-
-3. **National Exit Exam Score**: Achieved a high score of **78%** on the National Exit Examination.
-
-4. **Core Focus**: Algorithms, Distributed Systems, Software Engineering, Database Systems, and Artificial Intelligence.
-
-*Feel free to ask more specific questions about his projects, skills, education, or contact details!*`
-  }
-
-  if (q.includes('contact') || q.includes('hire') || q.includes('email') || q.includes('phone') || q.includes('reach') || q.includes('telegram') || q.includes('linkedin')) {
-    return `Here is what I found in Marelign's profile:
-
-Contact Information & Direct Channels:
-
-1. **Email Address**: [yimermarelign@gmail.com](mailto:yimermarelign@gmail.com)
-
-2. **Telegram Direct Message**: [@marelignY](https://t.me/marelignY)
-
-3. **Phone & WhatsApp**: +251 945 342 453
-
-4. **Professional Profiles**: [LinkedIn Profile](https://www.linkedin.com/in/marelign-yimer-298635369/) | [GitHub Portfolio](https://github.com/mareligncode)
-
-*Feel free to ask more specific questions about his projects, skills, education, or contact details!*`
-  }
-
-  // Fallback using retrieved context chunk
+  // General dynamic fallback using top chunk lines
   const primaryChunk = retrievedChunks[0]
+  const lines = primaryChunk.content
+    .split('\n')
+    .map((l) => l.trim().replace(/^[-•*]\s*/, '').replace(/^\d+\.\s*/, '').trim())
+    .filter((l) => l.length > 10)
+    .slice(0, 4)
+
+  const formattedLines = lines
+    .map((l, i) => `${i + 1}. ${l.startsWith('**') ? l : `**Fact ${i + 1}**: ${l}`}`)
+    .join('\n\n')
+
   return `Here is what I found in Marelign's profile:
 
 ${primaryChunk.category}:
 
-1. **Overview**: ${primaryChunk.content.split('\n')[0] || primaryChunk.content}
-
-2. **Key Details**: ${primaryChunk.content.slice(0, 300).replace(/\n/g, ' ')}...
+${formattedLines}
 
 *Feel free to ask more specific questions about his projects, skills, education, or contact details!*`
 }
