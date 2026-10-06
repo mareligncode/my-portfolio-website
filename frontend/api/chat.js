@@ -10,9 +10,9 @@ export default async function handler(req, res) {
   }
 
   const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY
-  if (!apiKey) {
+  if (!apiKey || apiKey === 'your_gemini_api_key_here') {
     return res.status(500).json({
-      error: 'GEMINI_API_KEY environment variable is not configured on the server.',
+      error: 'AI is not connected. GEMINI_API_KEY environment variable is missing or invalid on the server.',
     })
   }
 
@@ -60,17 +60,33 @@ ${history.map((h) => `${h.role === 'user' ? 'User' : 'Assistant'}: ${h.text}`).j
 User Query: ${message}`
 
     const genAI = new GoogleGenerativeAI(apiKey)
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
+    const modelsToTry = ['gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro', 'gemini-pro']
+    
+    let reply = null
+    let lastError = null
 
-    const result = await model.generateContent(systemPrompt)
-    const response = await result.response
-    const reply = response.text()
+    for (const modelName of modelsToTry) {
+      try {
+        const model = genAI.getGenerativeModel({ model: modelName })
+        const result = await model.generateContent(systemPrompt)
+        const response = await result.response
+        reply = response.text()
+        if (reply) break
+      } catch (err) {
+        console.warn(`Model ${modelName} failed:`, err.message)
+        lastError = err
+      }
+    }
+
+    if (!reply) {
+      throw lastError || new Error('Failed to generate AI response from available Gemini models.')
+    }
 
     return res.status(200).json({ reply })
   } catch (error) {
     console.error('Serverless chat handler error:', error)
     return res.status(500).json({
-      error: error.message || 'Internal Server Error while generating AI response.',
+      error: error.message || 'AI is not connected or failed to generate a response.',
     })
   }
 }

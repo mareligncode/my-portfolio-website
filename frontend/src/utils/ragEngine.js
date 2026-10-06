@@ -196,7 +196,7 @@ export async function askPortfolioAI(userMessage, conversationHistory = []) {
   const relevantChunks = retrieveContext(userMessage, 4)
   const fullPrompt = buildPrompt(userMessage, relevantChunks)
 
-  // 1. Try Serverless Endpoint
+  // 1. Try Serverless Endpoint (/api/chat)
   try {
     const res = await fetch('/api/chat', {
       method: 'POST',
@@ -216,24 +216,39 @@ export async function askPortfolioAI(userMessage, conversationHistory = []) {
           sources: relevantChunks.map((c) => c.category),
         }
       }
+    } else {
+      const errorData = await res.json().catch(() => ({}))
+      if (errorData.error && errorData.error.includes('not connected')) {
+        return {
+          reply: `⚠️ **AI is not connected.**\n\nPlease configure your \`GEMINI_API_KEY\` in Vercel Environment Variables to activate live Gemini AI responses.`,
+          sources: [],
+        }
+      }
     }
   } catch {
-    // Serverless endpoint not reachable in local dev without backend runner, proceed to direct client or fallback
+    // Serverless endpoint not reachable in local dev
   }
 
-  // 2. Try Client-side Gemini API (if VITE_GEMINI_API_KEY is configured in .env)
+  // 2. Try Client-side Gemini API key (if set in Vite env)
   const clientKey = import.meta.env?.VITE_GEMINI_API_KEY
   if (clientKey && clientKey !== 'your_gemini_api_key_here') {
+    const modelsToTry = ['gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro', 'gemini-pro']
     try {
       const genAI = new GoogleGenerativeAI(clientKey)
-      const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
-      const result = await model.generateContent(fullPrompt)
-      const response = await result.response
-      const text = response.text()
-      if (text) {
-        return {
-          reply: text,
-          sources: relevantChunks.map((c) => c.category),
+      for (const modelName of modelsToTry) {
+        try {
+          const model = genAI.getGenerativeModel({ model: modelName })
+          const result = await model.generateContent(fullPrompt)
+          const response = await result.response
+          const text = response.text()
+          if (text) {
+            return {
+              reply: text,
+              sources: relevantChunks.map((c) => c.category),
+            }
+          }
+        } catch (mErr) {
+          console.warn(`Client model ${modelName} failed:`, mErr.message)
         }
       }
     } catch (geminiError) {
@@ -241,10 +256,9 @@ export async function askPortfolioAI(userMessage, conversationHistory = []) {
     }
   }
 
-  // 3. Resilient Grounded Local RAG response
-  const fallbackReply = generateLocalRAGResponse(userMessage, relevantChunks)
+  // 3. If AI is not connected (no key configured or API unreachable)
   return {
-    reply: fallbackReply,
-    sources: relevantChunks.map((c) => c.category),
+    reply: `⚠️ **AI is not connected.**\n\nPlease set your \`GEMINI_API_KEY\` environment variable in Vercel Dashboard → Settings → Environment Variables (or \`VITE_GEMINI_API_KEY\` in your \`frontend/.env\` file for local dev) to start asking live AI questions!`,
+    sources: [],
   }
 }
