@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Exclude backend API routes and internal assets
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://marelign-portfolio.vercel.app/sitemap.xml

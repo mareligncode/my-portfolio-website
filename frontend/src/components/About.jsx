@@ -43,11 +43,14 @@ const About = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── Section Header ── */}
-        <div className="text-center mb-20 about-fade-up">
+        <div className="text-center mb-16 about-fade-up">
           <p className="text-sm font-semibold tracking-[0.2em] uppercase text-indigo-500 mb-2">
             About Me
           </p>
-         
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            Engineering Systems That <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 bg-clip-text text-transparent">Make An Impact</span>
+          </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-600 mx-auto rounded-full mt-4"></div>
         </div>
 
         {/* ── Two-Column Layout ── */}
@@ -88,7 +91,9 @@ const About = () => {
                   <div className="relative w-full aspect-[4/5] overflow-hidden rounded-[34px] shadow-[0_28px_70px_rgba(15,23,42,0.18)]">
                     <img
                       src={photo}
-                      alt="Marelign Yimer — Full-Stack Developer"
+                      alt="Marelign Yimer — Full-Stack Software Engineer & AI Developer"
+                      loading="eager"
+                      decoding="async"
                       className="absolute inset-0 w-full h-full object-cover object-[50%_18%]"
                     />
                   </div>

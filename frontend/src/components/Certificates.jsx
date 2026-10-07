@@ -71,6 +71,8 @@ const Certificates = () => {
                   <img
                     src={cert.image}
                     alt={cert.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-auto transition-transform duration-700 group-hover:scale-110 scale-on-hover object-center block"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 group-hover:opacity-90"></div>
