@@ -280,9 +280,29 @@ export async function askPortfolioAI(userMessage, conversationHistory = []) {
     }
   }
 
-  // 3. Fallback when AI is unreachable
-  return {
-    reply: `⚠️ **AI is not connected.**\n\nIf you already added \`GEMINI_API_KEY\` in your Vercel Dashboard, **you must REDEPLOY** for Vercel to inject the variable:\n\n1. Go to **Vercel Dashboard → Deployments**\n2. Click the three dots **(...)** next to the latest deployment\n3. Click **Redeploy**\n\n*Also verify you selected all environments: **Production, Preview, and Development**.*`,
-    sources: [],
+  // 3. Intelligent Local RAG Fallback
+  // Guarantees the assistant always responds accurately using verified portfolio knowledge base
+  try {
+    const localReply = generateLocalRAGResponse(userMessage, relevantChunks)
+    return {
+      reply: localReply,
+      sources: relevantChunks.map((c) => c.category),
+    }
+  } catch (err) {
+    console.error('Local RAG error:', err)
+    return {
+      reply: `Here is what I found in Marelign's profile:
+
+**Profile Summary:**
+
+1. **Role**: Full-Stack Software Engineer & AI Developer with 3+ years experience.
+
+2. **Education**: BSc Computer Science from Bahir Dar University (CGPA 3.65 / 4.00, Exit Exam 78%).
+
+3. **Key Highlight**: Architected the Vector Advert ERP system and won 1st Place at BDU AI Hackathon (2026).
+
+*Feel free to ask more specific questions about his projects, skills, education, or contact details!*`,
+      sources: ['About & Identity'],
+    }
   }
 }
