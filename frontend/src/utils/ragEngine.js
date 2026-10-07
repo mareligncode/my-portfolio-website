@@ -218,21 +218,45 @@ export async function askPortfolioAI(userMessage, conversationHistory = []) {
       }
     } else {
       const errorData = await res.json().catch(() => ({}))
-      if (errorData.error && errorData.error.includes('not connected')) {
+      
+      // If server explicitly reports missing API key
+      if (errorData.error === 'GEMINI_API_KEY_MISSING' || (errorData.error && errorData.error.includes('not connected'))) {
         return {
-          reply: `⚠️ **AI is not connected.**\n\nPlease configure your \`GEMINI_API_KEY\` in Vercel Environment Variables to activate live Gemini AI responses.`,
+          reply: `⚠️ **AI is not connected.**\n\nIf you already added \`GEMINI_API_KEY\` in your Vercel Dashboard, **you must REDEPLOY** for Vercel to inject the variable:\n\n1. Go to **Vercel Dashboard → Deployments**\n2. Click the three dots **(...)** next to the latest deployment\n3. Click **Redeploy**\n\n*Also verify you selected all environments: **Production, Preview, and Development**.*`,
+          sources: [],
+        }
+      }
+
+      // If Gemini returned an active API error (e.g. invalid key or quota)
+      if (errorData.message) {
+        return {
+          reply: `⚠️ **Gemini Error:** ${errorData.message}\n\nPlease check your API key at [Google AI Studio](https://aistudio.google.com/) and ensure your key has not expired or exceeded quota.`,
+          sources: [],
+        }
+      }
+
+      // If server returned 404 or other HTTP error
+      if (res.status === 404) {
+        return {
+          reply: `⚠️ **Endpoint /api/chat returned 404 Not Found.**\n\nPlease redeploy your project on Vercel to ensure the serverless function is published.`,
           sources: [],
         }
       }
     }
-  } catch {
-    // Serverless endpoint not reachable in local dev
+  } catch (netErr) {
+    console.warn('Serverless endpoint fetch error:', netErr)
   }
 
   // 2. Try Client-side Gemini API key (if set in Vite env)
   const clientKey = import.meta.env?.VITE_GEMINI_API_KEY
   if (clientKey && clientKey !== 'your_gemini_api_key_here') {
-    const modelsToTry = ['gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro', 'gemini-pro']
+    const modelsToTry = [
+      'gemini-1.5-flash',
+      'gemini-2.0-flash',
+      'gemini-1.5-flash-latest',
+      'gemini-1.5-pro',
+      'gemini-pro',
+    ]
     try {
       const genAI = new GoogleGenerativeAI(clientKey)
       for (const modelName of modelsToTry) {
@@ -256,9 +280,9 @@ export async function askPortfolioAI(userMessage, conversationHistory = []) {
     }
   }
 
-  // 3. If AI is not connected (no key configured or API unreachable)
+  // 3. Fallback when AI is unreachable
   return {
-    reply: `⚠️ **AI is not connected.**\n\nPlease set your \`GEMINI_API_KEY\` environment variable in Vercel Dashboard → Settings → Environment Variables (or \`VITE_GEMINI_API_KEY\` in your \`frontend/.env\` file for local dev) to start asking live AI questions!`,
+    reply: `⚠️ **AI is not connected.**\n\nIf you already added \`GEMINI_API_KEY\` in your Vercel Dashboard, **you must REDEPLOY** for Vercel to inject the variable:\n\n1. Go to **Vercel Dashboard → Deployments**\n2. Click the three dots **(...)** next to the latest deployment\n3. Click **Redeploy**\n\n*Also verify you selected all environments: **Production, Preview, and Development**.*`,
     sources: [],
   }
 }

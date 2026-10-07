@@ -2,17 +2,58 @@ import { GoogleGenerativeAI } from '@google/generative-ai'
 
 /**
  * Serverless API handler for Vercel / Netlify / Node.js
- * Endpoint: POST /api/chat
+ * Endpoint: POST /api/chat (or GET /api/chat for diagnostics)
  */
 export default async function handler(req, res) {
+  // 1. Enable CORS for all environments
+  res.setHeader('Access-Control-Allow-Credentials', 'true')
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end()
+  }
+
+  // 2. Read and sanitize API key from any supported env variable
+  const rawKey =
+    process.env.GEMINI_API_KEY ||
+    process.env.VITE_GEMINI_API_KEY ||
+    process.env.GOOGLE_API_KEY ||
+    ''
+
+  const apiKey = rawKey.replace(/^["'\s]+|["'\s]+$/g, '').trim()
+  const hasValidKey = Boolean(apiKey && apiKey !== 'your_gemini_api_key_here')
+
+  // 3. GET request: Diagnostics & Health check endpoint
+  if (req.method === 'GET') {
+    return res.status(200).json({
+      status: 'online',
+      service: 'Marelign Portfolio AI Assistant',
+      apiKeyConfigured: hasValidKey,
+      keyPreview: hasValidKey
+        ? `${apiKey.substring(0, 4)}...${apiKey.substring(apiKey.length - 4)}`
+        : 'missing',
+      environment: process.env.NODE_ENV || 'production',
+      message: hasValidKey
+        ? 'Gemini API key is successfully connected on the server!'
+        : 'GEMINI_API_KEY is not detected. Please add GEMINI_API_KEY to Vercel Environment Variables and trigger a Redeploy.',
+    })
+  }
+
+  // 4. POST request: AI Chat generation
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' })
   }
 
-  const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY
-  if (!apiKey || apiKey === 'your_gemini_api_key_here') {
+  if (!hasValidKey) {
     return res.status(500).json({
-      error: 'AI is not connected. GEMINI_API_KEY environment variable is missing or invalid on the server.',
+      error: 'GEMINI_API_KEY_MISSING',
+      message:
+        'AI is not connected. GEMINI_API_KEY is missing or empty in Vercel Environment Variables. Note: You must Redeploy on Vercel after adding the variable.',
     })
   }
 
@@ -60,8 +101,14 @@ ${history.map((h) => `${h.role === 'user' ? 'User' : 'Assistant'}: ${h.text}`).j
 User Query: ${message}`
 
     const genAI = new GoogleGenerativeAI(apiKey)
-    const modelsToTry = ['gemini-1.5-flash', 'gemini-2.0-flash', 'gemini-1.5-pro', 'gemini-pro']
-    
+    const modelsToTry = [
+      'gemini-1.5-flash',
+      'gemini-2.0-flash',
+      'gemini-1.5-flash-latest',
+      'gemini-1.5-pro',
+      'gemini-pro',
+    ]
+
     let reply = null
     let lastError = null
 
@@ -79,14 +126,18 @@ User Query: ${message}`
     }
 
     if (!reply) {
-      throw lastError || new Error('Failed to generate AI response from available Gemini models.')
+      throw (
+        lastError ||
+        new Error('Failed to generate AI response from available Gemini models.')
+      )
     }
 
     return res.status(200).json({ reply })
   } catch (error) {
     console.error('Serverless chat handler error:', error)
     return res.status(500).json({
-      error: error.message || 'AI is not connected or failed to generate a response.',
+      error: 'GEMINI_GENERATION_FAILED',
+      message: error.message || 'AI failed to generate a response from Gemini.',
     })
   }
 }
