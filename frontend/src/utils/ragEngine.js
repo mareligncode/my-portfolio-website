@@ -218,30 +218,7 @@ export async function askPortfolioAI(userMessage, conversationHistory = []) {
       }
     } else {
       const errorData = await res.json().catch(() => ({}))
-      
-      // If server explicitly reports missing API key
-      if (errorData.error === 'GEMINI_API_KEY_MISSING' || (errorData.error && errorData.error.includes('not connected'))) {
-        return {
-          reply: `⚠️ **AI is not connected.**\n\nIf you already added \`GEMINI_API_KEY\` in your Vercel Dashboard, **you must REDEPLOY** for Vercel to inject the variable:\n\n1. Go to **Vercel Dashboard → Deployments**\n2. Click the three dots **(...)** next to the latest deployment\n3. Click **Redeploy**\n\n*Also verify you selected all environments: **Production, Preview, and Development**.*`,
-          sources: [],
-        }
-      }
-
-      // If Gemini returned an active API error (e.g. invalid key or quota)
-      if (errorData.message) {
-        return {
-          reply: `⚠️ **Gemini Error:** ${errorData.message}\n\nPlease check your API key at [Google AI Studio](https://aistudio.google.com/) and ensure your key has not expired or exceeded quota.`,
-          sources: [],
-        }
-      }
-
-      // If server returned 404 or other HTTP error
-      if (res.status === 404) {
-        return {
-          reply: `⚠️ **Endpoint /api/chat returned 404 Not Found.**\n\nPlease redeploy your project on Vercel to ensure the serverless function is published.`,
-          sources: [],
-        }
-      }
+      console.warn('Serverless endpoint notice:', errorData.message || res.statusText)
     }
   } catch (netErr) {
     console.warn('Serverless endpoint fetch error:', netErr)
