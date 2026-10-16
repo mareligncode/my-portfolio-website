@@ -9,6 +9,7 @@ import Certificates from './components/Certificates'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import AIChatBot from './components/AIChatBot'
+import { Analytics } from '@vercel/analytics/react'
 import './App.css'
 
 function App() {
@@ -94,6 +95,7 @@ function App() {
       <Contact />
       <Footer />
       <AIChatBot />
+      <Analytics />
     </div>
   )
 }
