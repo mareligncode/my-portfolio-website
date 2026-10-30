@@ -65,25 +65,29 @@ Academic Achievements:
   {
     id: 'experience',
     category: 'Work Experience',
-    keywords: ['experience', 'work', 'job', 'career', 'history', 'role', 'positions', 'employed', 'professional', 'junior', 'senior', 'freelance', 'mentor', 'team lead'],
+    keywords: ['experience', 'work', 'job', 'career', 'history', 'role', 'positions', 'employed', 'professional', 'junior', 'senior', 'freelance', 'mentor', 'team lead', 'rama'],
     content: `Professional Experience Timeline:
 
-1. Full-Stack Developer — Current Role (2025 – Present)
+1. Full-Stack Developer — RAMA Software and IT Solutions (2026 June – Present)
+   - Architected and developed a production-grade ERP system with a team for Vector Advert & Manufacturing Company, digitizing manufacturing, inventory, HR, finance, CRM, and business operations.
+   - Built scalable frontend and backend services using React.js, Node.js, Express.js, PostgreSQL, and ORM, with REST APIs and role-based access control.
+   - Implemented real-time analytics and system updates using WebSockets, Supabase, and microservices-based backend architecture.
+   - Deployed and supported the system for real-world daily business operations, from development through testing and production use.
+
+2. Full-Stack Developer — Web & Mobile Projects (2025 – 2026)
    - Lead development of enterprise-grade web and mobile applications for production environments
    - Tech: React.js, React Native (Expo), Node.js, Express.js, Golang (Gin), MySQL, GORM, WebSockets
    - Responsibilities: System architecture design, API design, database schema design, code reviews
    - Mentoring junior developers and establishing engineering best practices and CI/CD workflows
-   - Delivered scalable microservices using Supabase and Node.js backend services
-   - Key achievement: Architected and deployed the Vector Advert Complete ERP System
 
-2. Junior Full-Stack Developer — Bahir Dar University Projects (2024 – 2025)
+3. Junior Full-Stack Developer — Bahir Dar University Projects (2024 – 2025)
    - Developed and maintained multiple institutional web applications and academic platforms
    - Built RESTful APIs with Node.js, Express.js, and MongoDB for various university projects
    - Collaborated in Agile teams using Git for version control and feature-branch workflows
    - Worked with MERN stack (MongoDB, Express, React, Node.js) across 5+ projects
    - Contributed to the Ethiopian Student AI Assistant platform (50% contribution)
 
-3. Learning & Foundations Phase (2023)
+4. Learning & Foundations Phase (2023)
    - Deep study of algorithms, data structures, software engineering principles
    - Built foundational programming logic, machine learning basics, and system design
    - Completed personal projects to apply theoretical knowledge to real-world solutions`

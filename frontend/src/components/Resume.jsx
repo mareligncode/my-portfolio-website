@@ -1,37 +1,49 @@
 import { Download, GraduationCap, Briefcase } from 'lucide-react'
 import resume from '../assets/Marelign.pdf'
+
 const Resume = () => {
   const education = [
     {
-      year: '2023- 2026',
+      year: '2023 - 2026',
       degree: 'Bachelor of Science in Computer Science',
-      institution: 'Bahirdar University',
-      description: 'Specialized in full-stack Development',
+      institution: 'Bahir Dar University',
+      description: 'Specialized in Full-Stack Development & Distributed Systems',
       cgpa: '3.65',
     },
-
   ]
 
   const experience = [
     {
-      year: '2025- Present',
-      position: ' Full-Stack Developer',
-      description:
-        'advance development of scalable web and mobile applications using React , reactnative with expo,Node.js,express,golang mysql,orm Mentoring junior developers and implementing best practices.',
+      year: '2026 June – Present',
+      position: 'Full-Stack Developer',
+      company: 'RAMA Software and IT Solutions',
+      description: [
+        'Architected and developed a production-grade ERP system with a team for Vector Advert & Manufacturing Company, digitizing manufacturing, inventory, HR, finance, CRM, and business operations.',
+        'Built scalable frontend and backend services using React.js, Node.js, Express.js, PostgreSQL, and ORM, with REST APIs and role-based access control.',
+        'Implemented real-time analytics and system updates using WebSockets, Supabase, and microservices-based backend architecture.',
+        'Deployed and supported the system for real-world daily business operations, from development through testing and production use.',
+      ],
     },
     {
-      year: '2024- 2025',
-      position: ' junior Full-Stack Developer',
-      company: 'bahirdar university',
+      year: '2025 – 2026',
+      position: 'Full-Stack Developer',
+      company: 'Freelance & Contract',
       description:
-        'Developed and maintained multiple  projects. Worked with various technologies including MongoDB, Express, React, and Node.js. ',
+        'Advanced development of scalable web and mobile applications using React, React Native with Expo, Node.js, Express, Golang, MySQL, and ORM. Mentoring junior developers and implementing best practices.',
     },
     {
-      year: ' 2023',
-      position: 'algorithm,prgogramming,machine language basics',
-      company: 'bahirdar university',
+      year: '2024 – 2025',
+      position: 'Junior Full-Stack Developer',
+      company: 'Bahir Dar University',
       description:
-        'Started my professional journey studing the logic of programming  and learning industry best practices.',
+        'Developed and maintained multiple projects. Worked with various technologies including MongoDB, Express, React, and Node.js.',
+    },
+    {
+      year: '2023',
+      position: 'Algorithm, Programming & Machine Learning Basics',
+      company: 'Bahir Dar University',
+      description:
+        'Started my professional journey studying the logic of programming and learning industry best practices.',
     },
   ]
 
@@ -135,9 +147,20 @@ const Resume = () => {
                     <p className="text-purple-600 dark:text-purple-400 font-semibold mb-3">
                       {exp.company}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                      {exp.description}
-                    </p>
+                    {Array.isArray(exp.description) ? (
+                      <ul className="space-y-2 text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                        {exp.description.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <span className="text-purple-500 dark:text-purple-400 font-bold mt-0.5">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {exp.description}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -150,4 +173,3 @@ const Resume = () => {
 }
 
 export default Resume
-
