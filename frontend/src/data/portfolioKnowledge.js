@@ -97,7 +97,7 @@ Academic Achievements:
   {
     id: 'skills_frontend',
     category: 'Frontend Skills',
-    keywords: ['frontend', 'react', 'javascript', 'html', 'css', 'tailwind', 'bootstrap', 'ui', 'ux', 'mobile', 'react native', 'expo', 'responsive'],
+    keywords: ['skills', 'skill', 'stack', 'tech', 'technical', 'technologies', 'proficiency', 'frontend', 'react', 'javascript', 'html', 'css', 'tailwind', 'bootstrap', 'ui', 'ux', 'mobile', 'react native', 'expo', 'responsive'],
     content: `Frontend & Mobile Development Skills:
 
 React.js (Proficiency: 95%)
@@ -132,7 +132,7 @@ Design Tools: Figma (basics), responsive wireframing`
   {
     id: 'skills_backend',
     category: 'Backend Skills',
-    keywords: ['backend', 'server', 'node', 'nodejs', 'express', 'api', 'rest', 'golang', 'go', 'gin', 'fastapi', 'python', 'microservices', 'websocket', 'kafka', 'socket'],
+    keywords: ['skills', 'skill', 'stack', 'tech', 'technical', 'technologies', 'proficiency', 'backend', 'server', 'node', 'nodejs', 'express', 'api', 'rest', 'golang', 'go', 'gin', 'fastapi', 'python', 'microservices', 'websocket', 'kafka', 'socket'],
     content: `Backend Development Skills:
 
 Node.js & Express.js (Proficiency: 95%)
@@ -164,7 +164,7 @@ API Design: REST, JSON API standards, API versioning, Postman testing & document
   {
     id: 'skills_database',
     category: 'Database & Cloud Skills',
-    keywords: ['database', 'db', 'mongodb', 'mysql', 'postgres', 'postgresql', 'supabase', 'orm', 'gorm', 'sequelize', 'vector', 'redis', 'cloud', 'storage'],
+    keywords: ['skills', 'skill', 'stack', 'tech', 'technical', 'technologies', 'proficiency', 'database', 'db', 'mongodb', 'mysql', 'postgres', 'postgresql', 'supabase', 'orm', 'gorm', 'sequelize', 'vector', 'redis', 'cloud', 'storage'],
     content: `Database & Cloud Infrastructure Skills:
 
 MongoDB (Proficiency: 90%)
@@ -196,7 +196,7 @@ Vector Databases:
   {
     id: 'skills_ai',
     category: 'AI & Machine Learning Skills',
-    keywords: ['ai', 'artificial intelligence', 'machine learning', 'ml', 'gemini', 'openai', 'chatgpt', 'langchain', 'langgraph', 'rag', 'vector', 'embedding', 'llm', 'nlp', 'agent', 'autonomous'],
+    keywords: ['skills', 'skill', 'stack', 'tech', 'technical', 'technologies', 'proficiency', 'ai', 'artificial intelligence', 'machine learning', 'ml', 'gemini', 'openai', 'chatgpt', 'langchain', 'langgraph', 'rag', 'vector', 'embedding', 'llm', 'nlp', 'agent', 'autonomous'],
     content: `AI & Machine Learning Integration Skills:
 
 Large Language Models (LLMs):
@@ -229,7 +229,7 @@ AI Product Experience:
   {
     id: 'skills_devops',
     category: 'DevOps & Tools',
-    keywords: ['devops', 'docker', 'git', 'github', 'deployment', 'ci cd', 'postman', 'vercel', 'render', 'container', 'version control', 'tools', 'workflow'],
+    keywords: ['skills', 'skill', 'stack', 'tech', 'technical', 'technologies', 'proficiency', 'devops', 'docker', 'git', 'github', 'deployment', 'ci cd', 'postman', 'vercel', 'render', 'container', 'version control', 'tools', 'workflow'],
     content: `DevOps, Tools & Workflow Skills:
 
 Version Control:
