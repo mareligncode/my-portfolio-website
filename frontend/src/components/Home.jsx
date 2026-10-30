@@ -405,7 +405,7 @@ const Home = () => {
               <div>
                 <div className="flex items-center gap-2">
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">
-                    Interactive 3D Project Vault
+                    explore my projects visit project section for more
                   </h3>
                   <span className="px-2 py-0.5 text-[10px] font-bold uppercase rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 text-white tracking-wider">
                     3D Cylinder
