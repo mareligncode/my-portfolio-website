@@ -126,6 +126,7 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={project.id}
+                id={`project-${project.id}`}
                 className="hover-lift glass-card card-tilt rounded-2xl overflow-hidden group stagger-item hover-glow"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
