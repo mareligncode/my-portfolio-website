@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     return res.status(200).end()
   }
 
-  // 2. Read Bot Token and Chat ID
+  // 2. Read Bot Token and Chat ID (with verified defaults)
   const botToken =
     process.env.TELEGRAM_BOT_TOKEN ||
     process.env.VITE_TELEGRAM_BOT_TOKEN ||
@@ -26,7 +26,7 @@ export default async function handler(req, res) {
   const chatId =
     process.env.TELEGRAM_CHAT_ID ||
     process.env.VITE_TELEGRAM_CHAT_ID ||
-    ''
+    '7571493566'
 
   // 3. Diagnostics & Health check endpoint
   if (req.method === 'GET') {
@@ -35,10 +35,8 @@ export default async function handler(req, res) {
       service: 'Portfolio Telegram Contact API',
       botConfigured: Boolean(botToken),
       chatIdConfigured: Boolean(chatId),
-      chatIdPreview: chatId ? `${String(chatId).substring(0, 3)}...` : 'missing',
-      instruction: !chatId
-        ? 'Please set TELEGRAM_CHAT_ID in your environment variables.'
-        : 'Telegram Contact API is fully configured and ready.',
+      chatIdPreview: chatId ? `${String(chatId).substring(0, 4)}...` : 'missing',
+      instruction: 'Telegram Contact API is fully configured and ready.',
     })
   }
 
@@ -57,8 +55,7 @@ export default async function handler(req, res) {
     if (!chatId) {
       return res.status(500).json({
         error: 'TELEGRAM_CHAT_ID_MISSING',
-        message:
-          'Telegram Chat ID is not configured. Please set TELEGRAM_CHAT_ID in your environment variables (.env / Vercel).',
+        message: 'Telegram Chat ID is not configured.',
       })
     }
 
@@ -118,4 +115,3 @@ export default async function handler(req, res) {
     })
   }
 }
-

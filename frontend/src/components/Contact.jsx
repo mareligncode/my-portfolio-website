@@ -33,7 +33,7 @@ const Contact = () => {
     if (!sentSuccessfully) {
       const botToken =
         import.meta.env.VITE_TELEGRAM_BOT_TOKEN || '9072435047:AAG1wRKyqsapofbnHyejQvPGlEE-tEvreac'
-      const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID
+      const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID || '7571493566'
 
       if (botToken && chatId) {
         try {

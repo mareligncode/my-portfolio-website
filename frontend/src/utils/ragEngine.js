@@ -327,7 +327,7 @@ export async function askPortfolioAI(userMessage, conversationHistory = []) {
 
   // 2. Try Client-side Gemini API key (if set in Vite env)
   const clientKey = import.meta.env?.VITE_GEMINI_API_KEY
-  if (clientKey && clientKey.startsWith('AIzaSy')) {
+  if (clientKey && (clientKey.startsWith('AIzaSy') || clientKey.startsWith('AQ.') || clientKey.length > 25)) {
     const modelsToTry = [
       'gemini-1.5-flash',
       'gemini-2.0-flash',
