@@ -13,35 +13,99 @@ const Contact = () => {
     e.preventDefault()
     setStatus('sending')
 
+    let sentSuccessfully = false
+
+    // 1. Primary: Serverless Backend Endpoint (/api/contact)
     try {
-      const response = await fetch("https://formspree.io/f/xwvgprwj", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-          _subject: `New Contact Form Submission from ${formData.name}`,
-        }),
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       })
-      const result = await response.json()
       if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', phone: '', message: '' })
-        setTimeout(() => setStatus(''), 5000)
-      } else {
-        setStatus('error')
-        console.error('Formspree error:', result)
+        sentSuccessfully = true
       }
-    } catch (err) {
+    } catch {
+      // Serverless endpoint not running (e.g. standalone Vite dev server)
+    }
+
+    // 2. Direct Telegram API fallback if Chat ID is configured in client env
+    if (!sentSuccessfully) {
+      const botToken =
+        import.meta.env.VITE_TELEGRAM_BOT_TOKEN || '9072435047:AAG1wRKyqsapofbnHyejQvPGlEE-tEvreac'
+      const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID
+
+      if (botToken && chatId) {
+        try {
+          const escapeHtml = (text) =>
+            String(text || '')
+              .replace(/&/g, '&amp;')
+              .replace(/</g, '&lt;')
+              .replace(/>/g, '&gt;')
+
+          const text = [
+            '📬 <b>New Portfolio Message</b>',
+            '────────────────────────────',
+            `👤 <b>Sender:</b> ${escapeHtml(formData.name)}`,
+            `📧 <b>Email:</b> ${escapeHtml(formData.email)}`,
+            `📱 <b>Phone:</b> ${escapeHtml(formData.phone || 'Not provided')}`,
+            '────────────────────────────',
+            `💬 <b>Message:</b>`,
+            escapeHtml(formData.message),
+          ].join('\n')
+
+          const tgRes = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              chat_id: chatId,
+              text,
+              parse_mode: 'HTML',
+            }),
+          })
+          if (tgRes.ok) {
+            sentSuccessfully = true
+          }
+        } catch {
+          // Direct telegram call failed
+        }
+      }
+    }
+
+    // 3. Fallback to Formspree backup if Telegram isn't configured yet
+    if (!sentSuccessfully) {
+      try {
+        const response = await fetch('https://formspree.io/f/xwvgprwj', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            _subject: `New Contact Form Submission from ${formData.name}`,
+          }),
+        })
+        if (response.ok) {
+          sentSuccessfully = true
+        }
+      } catch (err) {
+        console.error('Submission error:', err)
+      }
+    }
+
+    if (sentSuccessfully) {
+      setStatus('success')
+      setFormData({ name: '', email: '', phone: '', message: '' })
+      setTimeout(() => setStatus(''), 5000)
+    } else {
       setStatus('error')
-      console.error('Form submission error:', err)
     }
   }
+
   const contactDetails = [
     {
       Icon: Mail,
@@ -214,7 +278,7 @@ const Contact = () => {
               )}
               {status === 'error' && (
                 <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-600 dark:text-red-400 text-center font-medium mt-4">
-                  Failed to send message. Please try again or use the email link.
+                  Failed to send message. Please try again or reach out directly on Telegram.
                 </div>
               )}
             </form>
