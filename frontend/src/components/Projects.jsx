@@ -118,7 +118,7 @@ const Projects = () => {
             </h2>
             <div className="section-divider scroll-reveal-scale"></div>
             <p className="mt-8 text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed scroll-reveal">
-              A collection of projects showcasing my skills and experience
+              Production-grade applications, enterprise ERP platforms, and full stack MERN solutions engineered for performance and real-world impact.
             </p>
           </div>
 
@@ -135,7 +135,7 @@ const Projects = () => {
                   <div className="absolute inset-0 shimmer"></div>
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - Full Stack & MERN Developer Project by Marelign Yimer`}
                     loading="lazy"
                     decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 scale-on-hover"

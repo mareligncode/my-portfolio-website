@@ -148,7 +148,7 @@ const About = () => {
                   <span className="text-indigo-600 dark:text-indigo-400 font-semibold">
                     BSc in Computer Science at BahirDar University,
                   </span>{' '}
-                  and spent four years mastering algorithms, data structures, and full-stack application development. That
+                  and specialized as a Full Stack & MERN Developer, mastering algorithms, scalable distributed systems, and modern web application development. That
                   foundation combined with real-world project experience lets me architect solutions that are
                   both technically sound and user-centric.
                 </p>

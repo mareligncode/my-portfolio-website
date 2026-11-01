@@ -61,7 +61,7 @@ const Skills = () => {
             </h2>
             <div className="section-divider scroll-reveal-scale"></div>
             <p className="mt-8 text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed scroll-reveal">
-              A comprehensive overview of the technologies and tools I work with
+              Full Stack & MERN development stack, backend microservices, databases, and cloud tools I use to build scalable software.
             </p>
           </div>
 

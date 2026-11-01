@@ -117,12 +117,12 @@ const Contact = () => {
       Icon: Phone,
       label: 'Phone',
       value: '+251 945 342 453',
-      href: 'tel:+251912345678',
+      href: 'tel:+251945342453',
     },
     {
       Icon: MapPin,
       label: 'Location',
-      value: 'Ethiopia (Available for remote work worldwide)',
+      value: 'Addis Ababa, Ethiopia (Open for on-site & remote worldwide)',
       href: null,
     },
   ]

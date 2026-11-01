@@ -163,9 +163,10 @@ const Home = () => {
 
   const roles = [
     'Full-Stack Developer',
+    'MERN Stack Developer',
+    'Software Developer',
     'AI Solutions Engineer',
-    'Enterprise ERP Architect',
-    'Problem Solver & Innovator'
+    'Enterprise ERP Architect'
   ]
   const typingSpeed = 90
   const deletingSpeed = 45
@@ -281,14 +282,14 @@ const Home = () => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               <span className="text-xs font-semibold tracking-wide text-indigo-600 dark:text-indigo-400">
-                Available for Full-Stack & AI Roles
+                Available in Addis Ababa, Ethiopia &bull; Remote
               </span>
             </div>
 
             {/* Main Name Heading */}
             <div className="space-y-1">
               <span className="text-sm font-semibold tracking-widest uppercase text-gray-500 dark:text-gray-400 block">
-                Software Engineer & Innovator
+                Full Stack Developer &bull; MERN &bull; Software Engineer
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none">
                 <span className="text-gray-900 dark:text-white">Marelign </span>
@@ -307,8 +308,8 @@ const Home = () => {
 
             {/* Bio brief */}
             <p className="text-base text-gray-600 dark:text-gray-300 max-w-xl leading-relaxed">
-              Architecting production-grade enterprise systems, scalable web applications, and autonomous AI agents.
-              From high-performance backends to pixel-perfect interactive experiences that deliver lasting value.
+              Full Stack &amp; MERN Developer based in Addis Ababa, Ethiopia, architecting production-grade enterprise systems, scalable web applications, and autonomous AI agents.
+              From high-performance backends to responsive interactive web experiences that deliver lasting value.
             </p>
 
             {/* Action Buttons */}
