@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "cd frontend && npm install && npm run build && node -e \"const fs = require('fs'); fs.cpSync('dist', '../dist', {recursive: true});\"",
+    "build": "cd frontend && npm install && npm run build",
     "dev": "cd frontend && npm run dev"
   },
   "dependencies": {
