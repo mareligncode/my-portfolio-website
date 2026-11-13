@@ -1,9 +1,10 @@
 /* ==========================================================================
-   Editorial Serif Design System - Times New Roman
+   Modern Portfolio Design System - Plus Jakarta Sans & Inter
    ========================================================================== */
 
 :root {
-  --font-serif-main: "Times New Roman", Times, "Tinos", Georgia, Cambria, serif;
+  --font-sans-main: "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-mono-main: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 *,
@@ -16,25 +17,25 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 84px;
   overflow-x: hidden;
-  font-family: var(--font-serif-main);
+  font-family: var(--font-sans-main);
 }
 
 body {
-  font-family: var(--font-serif-main);
+  font-family: var(--font-sans-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-feature-settings: 'kern' 1, 'liga' 1;
   font-kerning: normal;
-  line-height: 1.65;
-  letter-spacing: 0.008em;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
   overflow-x: hidden;
   width: 100%;
 }
 
-/* Ensure all textual, interactive, and form elements consistently use Times New Roman */
+/* Consistent typography across all interactive and form elements */
 button,
 input,
 optgroup,
@@ -46,67 +47,63 @@ a,
 label,
 li,
 td,
-th,
-kbd,
-code,
-pre {
-  font-family: var(--font-serif-main);
+th {
+  font-family: var(--font-sans-main);
 }
 
-/* Refined Editorial Headings */
+code,
+kbd,
+pre {
+  font-family: var(--font-mono-main);
+}
+
+/* Modern Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif-main);
-  letter-spacing: -0.015em;
-  line-height: 1.25;
+  font-family: var(--font-sans-main);
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 h1 {
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
 }
 
-/* Form controls & interactive elements polish */
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: var(--font-serif-main) !important;
-}
-
+/* Form controls polish */
 input::placeholder,
 textarea::placeholder {
-  font-family: var(--font-serif-main);
-  letter-spacing: 0.01em;
+  font-family: var(--font-sans-main);
+  letter-spacing: 0;
 }
 
-/* Editorial elegance for uppercase chips, badges, and section eyebrow labels */
+/* Clean tracking for labels and chips */
 .uppercase,
 [class*="tracking-wider"],
 [class*="tracking-widest"] {
-  letter-spacing: 0.055em;
+  letter-spacing: 0.06em;
 }
 
-/* Refined numeral and tabular display */
+/* Tabular display for numbers and stats */
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
 
 /* Premium Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f5f5;
+  background: #f1f5f9;
 }
 
 .dark ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: #090a10;
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #6366f1 0%, #8b5cf6 100%);
-  border-radius: 6px;
+  border-radius: 9999px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
@@ -118,12 +115,13 @@ textarea::placeholder {
 
 /* Selection */
 ::selection {
-  background: rgba(99, 102, 241, 0.3);
+  background: rgba(99, 102, 241, 0.25);
   color: inherit;
 }
 
 .dark ::selection {
-  background: rgba(129, 140, 248, 0.3);
+  background: rgba(129, 140, 248, 0.35);
+  color: #ffffff;
 }
 
 /* Smooth transitions for interactive elements */

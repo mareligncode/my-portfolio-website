@@ -15,8 +15,20 @@ import './App.css'
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
     // Check localStorage or default to light mode
-    const saved = localStorage.getItem('darkMode')
-    return saved ? JSON.parse(saved) : false
+    try {
+      const saved = localStorage.getItem('darkMode')
+      const initial = saved !== null ? JSON.parse(saved) : false
+      if (typeof document !== 'undefined') {
+        if (initial) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      }
+      return initial
+    } catch {
+      return false
+    }
   })
 
   useEffect(() => {
@@ -84,9 +96,9 @@ function App() {
   }
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900' : 'bg-white'}`}>
+    <div className={`min-h-screen ${darkMode ? 'dark bg-[#07070c] text-gray-100' : 'bg-white text-gray-900'} transition-colors duration-300`}>
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-      <Home />
+      <Home darkMode={darkMode} />
       <About />
       <Skills />
       <Projects />
